@@ -134,7 +134,7 @@ This project is licensed under the MIT License
 
 ## Contact
 
-For any inquiries, feel free to via [mulinyafadhil@gmail.com](mailto:mulinyafadhil@gmail.com) or join our community Discord.
+For any inquiries, feel free to via [mulinyafadhil@gmail.com](mailto:mulinyafadhil@gmail.com) or [chrisoketchcon@gmail.com](mailto:chrisoketchcon@gmail.com)
 
 ---
 
