@@ -1,5 +1,3 @@
- **README** 
-
 
 # Edupay
 
@@ -12,8 +10,6 @@
 The **edupay** is a decentralized platform that allows students, parents, and guardians to pay school fees using cryptocurrency. At the same time, schools can efficiently manage and track these payments. This system aims to solve several issues within traditional fee management systems, such as **ghost schools** and **ghost projects**, ensuring transparency and security in educational payments.
 
 ## Problem Statement
-
-Here’s a summarized version of the **problem statements** for your GitHub README:
 
 ---
 
