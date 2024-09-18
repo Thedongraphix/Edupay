@@ -41,7 +41,7 @@ Here’s a summarized version of the **problem statements** for your GitHub READ
 
 ---
 
-You can now add this summary to your **GitHub account README**!
+
 
 ## Project Vision
 
