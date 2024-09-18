@@ -11,8 +11,6 @@ The **edupay** is a decentralized platform that allows students, parents, and gu
 
 ## Problem Statement
 
----
-
 ### Problem Statements
 
 1. **Lack of Transparency**: Traditional fee systems obscure transactions, leading to confusion and mismanagement. Blockchain ensures transparency and traceable payments.
