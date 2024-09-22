@@ -364,13 +364,20 @@ function SideBarItem({ href, icon, label, active, onClick }) {
      onClick={onClick}
    >
      {icon}
-     <span className="ml-2 text-green-400">{label}</span>
+     <span className="ml-2 text-black-400">{label}</span>
    </a>
  )
 }
-
-
 function DashboardCard({ title, value }) {
+  return (
+    <div className="font-poppins bg-white p-4 rounded-lg shadow">
+      <h4 className="text-sm font-medium text-gray-600">{title}</h4>
+      <p className="text-xl font-semibold text-gray-800">{value}</p>
+    </div>
+  );
+}
+
+function DashboardCard2({ title, value }) {
  return (
    <div className="bg-white p-4 rounded-lg shadow">
      <h4 className="text-sm font-medium text-gray-600">{title}</h4>
