@@ -1,21 +1,15 @@
- **README** 
-
 
 # Edupay
 
 ## Introduction
 
 
- Click => [Website Url](https://karo-nu.vercel.app/)
+ The site is live check it out here [Edupay](https://karo-nu.vercel.app/)
 
 
 The **edupay** is a decentralized platform that allows students, parents, and guardians to pay school fees using cryptocurrency. At the same time, schools can efficiently manage and track these payments. This system aims to solve several issues within traditional fee management systems, such as **ghost schools** and **ghost projects**, ensuring transparency and security in educational payments.
 
 ## Problem Statement
-
-Here’s a summarized version of the **problem statements** for your GitHub README:
-
----
 
 ### Problem Statements
 
@@ -41,7 +35,7 @@ Here’s a summarized version of the **problem statements** for your GitHub READ
 
 ---
 
-You can now add this summary to your **GitHub account README**!
+
 
 ## Project Vision
 
@@ -138,7 +132,7 @@ This project is licensed under the MIT License
 
 ## Contact
 
-For any inquiries, feel free to via [mulinyafadhil@gmail.com](mailto:mulinyafadhil@gmail.com) or join our community Discord.
+For any inquiries, feel free to via [mulinyafadhil@gmail.com](mailto:mulinyafadhil@gmail.com) or [chrisoketchcon@gmail.com](mailto:chrisoketchcon@gmail.com)
 
 ---
 
