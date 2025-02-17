@@ -9,7 +9,7 @@ const Features = () => {
         <div className="container">
           <SectionTitle
             title="Main Features"
-            paragraph="There are many variations of passages of Lorem Ipsum available but the majority have suffered alteration in some form."
+            paragraph="Edupay is a platform that allows you to pay for your education with your crypto. We are a team of developers and designers who are passionate about education and technology."
             center
           />
 

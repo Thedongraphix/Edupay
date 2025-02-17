@@ -13,7 +13,6 @@ module.exports = {
       center: true,
       padding: "1rem",
     },
-
     screens: {
       xs: "450px",
       // => @media (min-width: 450px) { ... }
@@ -34,6 +33,9 @@ module.exports = {
       // => @media (min-width: 1400px) { ... }
     },
     extend: {
+      fontFamily: {
+        'space-grotesk': ['"Space Grotesk"', 'sans-serif'],
+      },
       colors: {
         current: "currentColor",
         transparent: "transparent",
