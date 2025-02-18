@@ -24,8 +24,8 @@ const AboutSectionOne = () => {
           <div className="-mx-4 flex flex-wrap items-center">
             <div className="w-full px-4 lg:w-1/2">
               <SectionTitle
-                title="Crafted for Startup, SaaS and Business Sites."
-                paragraph="The main ‘thrust’ is to focus on educating attendees on how to best protect highly vulnerable business applications with interactive panel discussions and roundtables."
+                title="Revolutionising crypto payments for education"
+                paragraph="Edupay is a platform that allows users to pay for education using cryptocurrencies. It is a platform that is built on the Ethereum blockchain and uses the ERC-20 standard."
                 mb="44px"
               />
 
@@ -35,16 +35,17 @@ const AboutSectionOne = () => {
               >
                 <div className="mx-[-12px] flex flex-wrap">
                   <div className="w-full px-3 sm:w-1/2 lg:w-full xl:w-1/2">
-                    <List text="Premium quality" />
-                    <List text="Tailwind CSS" />
+                    <List text="Secure and transparent" />
+                    <List text="Multi-wallet support" />
                     <List text="Use for lifetime" />
                   </div>
 
-                  <div className="w-full px-3 sm:w-1/2 lg:w-full xl:w-1/2">
-                    <List text="Next.js" />
-                    <List text="Rich documentation" />
-                    <List text="Developer friendly" />
+                  {/*<div className="w-full px-3 sm:w-1/2 lg:w-full xl:w-1/2">
+                    <List text="Use for lifetime" />
+                    <List text="Secure and transparent" />
+                    <List text="Multi-wallet support" />
                   </div>
+                  */}
                 </div>
               </div>
             </div>
