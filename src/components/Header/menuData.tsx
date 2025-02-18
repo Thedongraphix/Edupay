@@ -42,7 +42,7 @@ const menuData: Menu[] = [
         path: "/contact",
         newTab: false,
       },
-      {
+      /*{
         id: 43,
         title: "Blog Grid Page",
         path: "/blog",
@@ -59,7 +59,7 @@ const menuData: Menu[] = [
         title: "Blog Details Page",
         path: "/blog-details",
         newTab: false,
-      },
+      },*/
       {
         id: 46,
         title: "Sign In Page",
