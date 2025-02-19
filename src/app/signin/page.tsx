@@ -13,7 +13,7 @@ const SigninPage = () => {
   // Redirect if already authenticated
   useEffect(() => {
     if (authenticated) {
-      router.push('/blog');
+      router.push('/');
     }
   }, [authenticated, router]);
 
@@ -44,13 +44,14 @@ const SigninPage = () => {
                 <div className="mb-6">
                   <button 
                     onClick={handleSignIn}
+                    disabled={isLoading}
                     className="shadow-submit dark:shadow-submit-dark flex w-full items-center justify-center rounded-sm bg-primary px-9 py-4 text-base font-medium text-white duration-300 hover:bg-primary/90"
                   >
-                    Sign in
+                    {isLoading ? "Signing in..." : "Sign in"}
                   </button>
                 </div>
                 <p className="text-center text-base font-medium text-body-color">
-                  Don't have an account?{" "}
+                  Don&apos;t have an account?{" "}
                   <Link href="/signup" className="text-primary hover:underline">
                     Sign up
                   </Link>

@@ -3,25 +3,28 @@
 import Link from "next/link";
 import { usePrivy } from '@privy-io/react-auth';
 import { useRouter } from 'next/navigation';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 const SignupPage = () => {
   const { login, authenticated } = usePrivy();
   const router = useRouter();
+  const [isLoading, setIsLoading] = useState(false);
 
   // Redirect if already authenticated
   useEffect(() => {
     if (authenticated) {
-      router.push('/about');
+      router.push('/dashboard');
     }
   }, [authenticated, router]);
 
   const handleSignIn = async () => {
     try {
+      setIsLoading(true);
       await login();
-      // No need for manual redirect here as the useEffect will handle it
     } catch (error) {
       console.error('Login failed:', error);
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -35,14 +38,15 @@ const SignupPage = () => {
                 Create your account
               </h3>
               <p className="mb-11 text-center text-base font-medium text-body-color">
-                It's totally free and super easy
+                It&apos;s totally free and super easy
               </p>
               <div className="mb-6">
                 <button
                   onClick={handleSignIn}
+                  disabled={isLoading}
                   className="shadow-submit dark:shadow-submit-dark flex w-full items-center justify-center rounded-sm bg-primary px-9 py-4 text-base font-medium text-white duration-300 hover:bg-primary/90"
                 >
-                  Sign up with Privy
+                  {isLoading ? "Signing up..." : "Sign up with Privy"}
                 </button>
               </div>
               <p className="text-center text-base font-medium text-body-color">
