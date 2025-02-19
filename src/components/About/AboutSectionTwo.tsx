@@ -31,7 +31,7 @@ const AboutSectionTwo = () => {
                   Connect Your Wallet 
                 </h3>
                 <p className="text-base font-medium leading-relaxed text-body-color sm:text-lg sm:leading-relaxed">
-                 Conect Your Wallet to execute a payment 
+                 Connect Your Wallet to execute a payment 
                 </p>
               </div>
               <div className="mb-9">

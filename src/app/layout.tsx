@@ -6,6 +6,7 @@ import ScrollToTop from "@/components/ScrollToTop";
 import { Space_Grotesk } from "next/font/google";
 import "node_modules/react-modal-video/css/modal-video.css";
 import "../styles/index.css";
+import { ProvidersContainer } from "./providers";
 
 const spaceGrotesk = Space_Grotesk({ 
   subsets: ["latin"],
@@ -26,15 +27,14 @@ export default function RootLayout({
       <head />
 
       <body className={`bg-[#FCFCFC] dark:bg-black ${spaceGrotesk.className}`}>
-        <Providers>
+        <ProvidersContainer>
+
           <Header />
           {children}
           <Footer />
           <ScrollToTop />
-        </Providers>
+        </ProvidersContainer>
       </body>
     </html>
   );
 }
-
-import { Providers } from "./providers";

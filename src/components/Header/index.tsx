@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import ThemeToggler from "./ThemeToggler";
 import menuData from "./menuData";
-
+import { usePrivy } from "@privy-io/react-auth";
 const Header = () => {
   // Navbar toggle
   const [navbarOpen, setNavbarOpen] = useState(false);
@@ -35,6 +35,9 @@ const Header = () => {
       setOpenIndex(index);
     }
   };
+
+
+  
 
   const usePathName = usePathname();
 
@@ -162,6 +165,7 @@ const Header = () => {
                 </Link>
                 <div>
                   <ThemeToggler />
+                  
                 </div>
               </div>
             </div>
