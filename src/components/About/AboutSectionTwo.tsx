@@ -11,16 +11,16 @@ const AboutSectionTwo = () => {
               data-wow-delay=".15s"
             >
               <Image
-                src="/images/about/about-image-2.svg"
-                alt="EduPay payment process"
+                src="/images/about/african-students-mobile-payment.jpg"
+                alt="African students using mobile payment technology"
                 fill
-                className="drop-shadow-three dark:hidden dark:drop-shadow-none"
+                className="rounded-lg object-cover shadow-lg dark:hidden"
               />
               <Image
-                src="/images/about/about-image-2-dark.svg"
-                alt="EduPay payment process"
+                src="/images/about/african-students-mobile-payment-dark.jpg"
+                alt="African students using mobile payment technology"
                 fill
-                className="hidden drop-shadow-three dark:block dark:drop-shadow-none"
+                className="hidden rounded-lg object-cover shadow-lg dark:block"
               />
             </div>
           </div>

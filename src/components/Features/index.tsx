@@ -8,8 +8,8 @@ const Features = () => {
       <section id="features" className="py-16 md:py-20 lg:py-28">
         <div className="container">
           <SectionTitle
-            title="Main Features"
-            paragraph="Edupay is a platform that allows you to pay for your education with your crypto. We are a team of developers and designers who are passionate about education and technology."
+            title="Why Choose EduPay"
+            paragraph="EduPay provides educational institutions across Africa with secure, affordable cryptocurrency payment solutions that reduce costs by up to 80% while increasing accessibility for all students."
             center
           />
 
