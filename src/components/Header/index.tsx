@@ -14,6 +14,7 @@ const Header = () => {
   };
 
   // Sticky Navbar
+  const usePathName = usePathname();
   const [sticky, setSticky] = useState(false);
   const handleStickyNavbar = () => {
     if (window.scrollY >= 80) {
@@ -35,11 +36,6 @@ const Header = () => {
       setOpenIndex(index);
     }
   };
-
-
-  
-
-  const usePathName = usePathname();
 
   return (
     <>

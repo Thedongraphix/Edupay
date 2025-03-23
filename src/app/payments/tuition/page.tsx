@@ -1,12 +1,16 @@
-"use client";
-
 import React from "react";
 import Link from "next/link";
 import SectionTitle from "@/components/Common/SectionTitle";
 import Breadcrumb from "@/components/Common/Breadcrumb";
-import { CryptoPriceDisplay } from "@/components/Dashboard/CryptoPriceDisplay";
+import dynamic from "next/dynamic";
 
-const TuitionPaymentPage = () => {
+// Dynamically import client components with no SSR
+const CryptoPriceDisplay = dynamic(
+  () => import("@/components/Dashboard/CryptoPriceDisplay").then(mod => ({ default: mod.CryptoPriceDisplay })),
+  { ssr: false }
+);
+
+export default function TuitionPaymentPage() {
   return (
     <>
       <Breadcrumb
@@ -250,15 +254,11 @@ const TuitionPaymentPage = () => {
                             fill="white"
                           />
                           <path
-                            d="M6.6095 18.3115C6.6095 18.1264 6.75767 17.9764 6.94061 17.9764H7.29519C7.47813 17.9764 7.6263 18.1264 7.6263 18.3115V18.6728C7.6263 18.8579 7.47813 19.0078 7.29519 19.0078H6.94061C6.75767 19.0078 6.6095 18.8579 6.6095 18.6728V18.3115Z"
+                            d="M11.1264 21.1614C11.1264 21.3465 10.9782 21.4964 10.7953 21.4964H10.4407C10.2578 21.4964 10.1096 21.3465 10.1096 21.1614V20.8001C10.1096 20.615 10.2578 20.4651 10.4407 20.4651H10.7953C10.9782 20.4651 11.1264 20.615 11.1264 20.8001V21.1614Z"
                             fill="white"
                           />
                           <path
-                            d="M9.68653 18.3115C9.68653 18.1264 9.83468 17.9764 10.0176 17.9764H10.3722C10.5551 17.9764 10.7033 18.1264 10.7033 18.3115V18.6728C10.7033 18.8579 10.5551 19.0078 10.3722 19.0078H10.0176C9.83468 19.0078 9.68653 18.8579 9.68653 18.6728V18.3115Z"
-                            fill="white"
-                          />
-                          <path
-                            d="M13.6151 21.9162C13.7815 22.0077 14.0056 21.9054 14.096 21.7368C14.1864 21.5682 14.0853 21.3414 13.9189 21.2499C13.3789 20.9329 13.0194 20.3605 13.0051 19.7085C12.9909 19.0566 13.3241 18.4689 13.8485 18.1275C14.373 17.786 15.0261 17.7345 15.5981 18.0014C16.1701 18.2684 16.5627 18.8186 16.618 19.4697C16.6257 19.8099 16.5431 20.1444 16.3792 20.44C16.2889 20.6086 16.3899 20.8353 16.5564 20.9268C16.7228 21.0182 16.947 20.9159 17.0373 20.7473C17.2569 20.346 17.3712 19.8954 17.3712 19.4377C17.3712 17.9987 16.2141 16.8292 14.7903 16.8292C13.3666 16.8292 12.2095 17.9987 12.2095 19.4377C12.2095 20.3887 12.7795 21.2335 13.6151 21.9162Z"
+                            d="M16.5019 21.1614C16.5019 21.3465 16.3538 21.4964 16.1708 21.4964H15.8162C15.6333 21.4964 15.4851 21.3465 15.4851 21.1614V20.8001C15.4851 20.615 15.6333 20.4651 15.8162 20.4651H16.1708C16.3538 20.4651 16.5019 20.615 16.5019 20.8001V21.1614Z"
                             fill="white"
                           />
                         </svg>
@@ -270,103 +270,213 @@ const TuitionPaymentPage = () => {
                   </div>
                 </div>
 
-                <div className="mb-10">
+                <div className="mb-8">
                   <label
-                    htmlFor="studentNotes"
+                    htmlFor="paymentNotes"
                     className="mb-3 block text-sm font-medium text-black dark:text-white"
                   >
-                    Student Notes (Optional)
+                    Payment Notes (Optional)
                   </label>
                   <textarea
-                    id="studentNotes"
-                    rows={4}
-                    placeholder="Add any details about your payment..."
+                    id="paymentNotes"
+                    rows={3}
+                    placeholder="Add any notes about this payment"
                     className="w-full rounded-md border border-transparent bg-[#f8f8f8] px-6 py-3 text-base text-body-color placeholder-body-color shadow-one outline-none focus:border-primary focus-visible:shadow-none dark:bg-[#2C303B] dark:shadow-signUp"
                   ></textarea>
                 </div>
 
-                <button className="flex w-full items-center justify-center rounded-md bg-primary px-8 py-4 text-base font-medium text-white duration-300 hover:bg-primary/90">
-                  <span className="mr-2">Continue Payment</span>
-                  <svg
-                    className="h-5 w-5"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      d="M14 5l7 7m0 0l-7 7m7-7H3"
-                    ></path>
-                  </svg>
+                <div className="mb-6">
+                  <div className="flex items-center">
+                    <input
+                      type="checkbox"
+                      id="termsCheck"
+                      className="h-5 w-5 rounded border-gray-300 text-primary focus:ring-primary"
+                    />
+                    <label
+                      htmlFor="termsCheck"
+                      className="ml-2 text-sm text-body-color dark:text-dark-6"
+                    >
+                      I agree to Edupay's{" "}
+                      <Link
+                        href="/terms"
+                        className="text-primary underline hover:text-primary/90"
+                      >
+                        Terms & Conditions
+                      </Link>{" "}
+                      and{" "}
+                      <Link
+                        href="/privacy"
+                        className="text-primary underline hover:text-primary/90"
+                      >
+                        Privacy Policy
+                      </Link>
+                    </label>
+                  </div>
+                </div>
+
+                <button
+                  type="submit"
+                  className="flex w-full items-center justify-center rounded-md bg-primary px-9 py-4 text-base font-medium text-white shadow-submit duration-300 hover:bg-primary/90 dark:shadow-submit-dark"
+                >
+                  Continue to Payment
                 </button>
               </form>
             </div>
 
-            <div>
-              <div className="mb-10 rounded-lg bg-white p-8 shadow-sm dark:bg-[#1D2144] dark:shadow-none">
-                <h3 className="mb-6 text-xl font-bold text-black dark:text-white">
-                  Payment Summary
-                </h3>
+            {/* Payment Summary */}
+            <div className="rounded-lg bg-white p-8 shadow-sm dark:bg-[#1D2144] dark:shadow-none">
+              <h2 className="mb-8 text-2xl font-bold text-black dark:text-white">
+                Payment Summary
+              </h2>
 
-                <div className="mb-5 flex items-center justify-between border-b border-body-color border-opacity-10 pb-5 dark:border-white dark:border-opacity-10">
-                  <p className="text-base font-medium text-body-color dark:text-body-color-dark">
-                    Tuition Fee
+              <div className="mb-8 border-b border-body-color/10 pb-8 dark:border-white/10">
+                <div className="mb-6 flex items-center justify-between">
+                  <p className="text-base font-medium text-body-color dark:text-dark-6">
+                    Tuition Fee (Fall 2023)
                   </p>
                   <p className="text-base font-medium text-black dark:text-white">
-                    1.2 ETH
+                    $2,000.00
                   </p>
                 </div>
-                <div className="mb-5 flex items-center justify-between border-b border-body-color border-opacity-10 pb-5 dark:border-white dark:border-opacity-10">
-                  <p className="text-base font-medium text-body-color dark:text-body-color-dark">
-                    Network Fee
+                <div className="mb-6 flex items-center justify-between">
+                  <p className="text-base font-medium text-body-color dark:text-dark-6">
+                    Technology Fee
                   </p>
                   <p className="text-base font-medium text-black dark:text-white">
-                    0.001 ETH
+                    $150.00
                   </p>
                 </div>
-                <div className="mb-8 flex items-center justify-between">
+                <div className="mb-6 flex items-center justify-between">
+                  <p className="text-base font-medium text-body-color dark:text-dark-6">
+                    Library Fee
+                  </p>
                   <p className="text-base font-medium text-black dark:text-white">
-                    Total Amount
-                  </p>
-                  <p className="text-base font-bold text-black dark:text-white">
-                    1.201 ETH
+                    $75.00
                   </p>
                 </div>
-                <p className="text-center text-sm text-body-color dark:text-body-color-dark">
-                  Estimated USD value: $2,185.45
-                </p>
+                <div className="flex items-center justify-between">
+                  <p className="text-base font-medium text-body-color dark:text-dark-6">
+                    Processing Fee
+                  </p>
+                  <p className="text-base font-medium text-green-500 dark:text-green-400">
+                    -$40.00 (80% Savings)
+                  </p>
+                </div>
               </div>
 
-              <div className="rounded-lg bg-white p-8 shadow-sm dark:bg-[#1D2144] dark:shadow-none">
-                <h3 className="mb-6 text-xl font-bold text-black dark:text-white">
-                  Need Help?
+              <div className="border-b border-body-color/10 pb-8 dark:border-white/10">
+                <div className="mb-6 flex items-center justify-between">
+                  <p className="text-base font-medium text-body-color dark:text-dark-6">
+                    Subtotal
+                  </p>
+                  <p className="text-base font-medium text-black dark:text-white">
+                    $2,225.00
+                  </p>
+                </div>
+                <div className="mb-6 flex items-center justify-between">
+                  <p className="text-base font-medium text-body-color dark:text-dark-6">
+                    Network Fee (Est.)
+                  </p>
+                  <p className="text-base font-medium text-black dark:text-white">
+                    $10.45
+                  </p>
+                </div>
+                <div className="flex items-center justify-between">
+                  <p className="text-base font-medium text-black dark:text-white">
+                    Total Due
+                  </p>
+                  <p className="text-base font-bold text-primary">
+                    $2,235.45 USD
+                  </p>
+                </div>
+              </div>
+
+              <div className="mt-8">
+                <h3 className="mb-4 text-lg font-semibold text-black dark:text-white">
+                  Payment Method
                 </h3>
-                <p className="mb-8 text-base text-body-color dark:text-body-color-dark">
-                  If you're having trouble with your payment or have questions about fees, our support team is here to help.
-                </p>
-                <Link
-                  href="/support"
-                  className="inline-flex items-center justify-center rounded-md bg-primary/10 px-6 py-3 text-base font-medium text-primary duration-300 hover:bg-primary/20 dark:bg-primary/5 dark:hover:bg-primary/10"
-                >
-                  <svg
-                    className="mr-2 h-5 w-5"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"
-                    ></path>
-                  </svg>
-                  Contact Support
-                </Link>
+                <div className="mb-3 flex items-center gap-2 rounded-lg bg-[#F8F8F8] p-4 dark:bg-[#2A2F51]">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary/10">
+                    <svg
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M14.2397 5.84961L12.9997 4.92961C12.3997 4.52961 11.5997 4.52961 10.9997 4.92961L9.7597 5.84961C9.5997 5.95961 9.3997 5.99961 9.1997 5.99961C8.7597 5.99961 8.3597 5.70961 8.2297 5.28961L7.8997 4.13961C7.6997 3.48961 7.0397 3.09961 6.3797 3.24961L3.1797 3.95961C2.3997 4.14961 1.9297 4.96961 2.1197 5.74961L5.2797 18.4696C5.4297 19.0496 5.9397 19.4396 6.5197 19.4396C6.6397 19.4396 6.7597 19.4196 6.8797 19.3896L10.0797 18.6796C10.5797 18.5496 10.9997 18.1196 11.0997 17.6096L11.1997 17.0496C11.2997 16.5396 11.7197 16.1296 12.2297 16.0196L16.0997 15.1896C16.6097 15.0696 16.9997 14.6396 17.0997 14.1296L18.0997 7.12961C18.1997 6.44961 17.7797 5.80961 17.1197 5.57961L14.2397 4.61961"
+                        stroke="#4A6CF7"
+                        strokeWidth="1.5"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                      <path
+                        d="M21.89 9.00099C21.89 10.031 21.41 10.941 20.66 11.481V6.53099C21.4 7.08099 21.89 7.99099 21.89 9.00099Z"
+                        stroke="#4A6CF7"
+                        strokeWidth="1.5"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                      <path
+                        d="M20.66 11.4711V12.7211C20.66 14.7611 19.01 16.4211 16.96 16.4211C14.91 16.4211 13.26 14.7711 13.26 12.7211V11.4711"
+                        stroke="#4A6CF7"
+                        strokeWidth="1.5"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                      <path
+                        d="M18.86 9.00099C18.86 7.96099 19.34 7.05099 20.09 6.51099V11.461C19.34 10.921 18.86 10.001 18.86 9.00099Z"
+                        stroke="#4A6CF7"
+                        strokeWidth="1.5"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </svg>
+                  </div>
+                  <div>
+                    <h5 className="text-base font-medium text-black dark:text-white">
+                      University Approved
+                    </h5>
+                    <p className="text-sm text-body-color dark:text-dark-6">
+                      This payment method is approved by your institution
+                    </p>
+                  </div>
+                </div>
+                <div className="flex items-center gap-2 rounded-lg bg-[#F8F8F8] p-4 dark:bg-[#2A2F51]">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary/10">
+                    <svg
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M12 22C17.5 22 22 17.5 22 12C22 6.5 17.5 2 12 2C6.5 2 2 6.5 2 12C2 17.5 6.5 22 12 22Z"
+                        stroke="#4A6CF7"
+                        strokeWidth="1.5"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                      <path
+                        d="M7.75 12L10.58 14.83L16.25 9.17"
+                        stroke="#4A6CF7"
+                        strokeWidth="1.5"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </svg>
+                  </div>
+                  <div>
+                    <h5 className="text-base font-medium text-black dark:text-white">
+                      Secure & Transparent
+                    </h5>
+                    <p className="text-sm text-body-color dark:text-dark-6">
+                      Blockchain verified transaction with 100% security
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -374,6 +484,4 @@ const TuitionPaymentPage = () => {
       </section>
     </>
   );
-};
-
-export default TuitionPaymentPage; 
+}; 

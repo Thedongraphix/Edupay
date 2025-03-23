@@ -257,7 +257,7 @@ export function StandaloneBarChart() {
               dataKey="amount" 
               radius={[6, 6, 0, 0]}
               animationDuration={2000}
-              animationEasing="ease-out-elastic"
+              animationEasing="ease-out"
             >
               {chartData.map((entry, index) => (
                 <Cell

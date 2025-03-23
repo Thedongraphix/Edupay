@@ -24,12 +24,6 @@ const menuData = [
     newTab: false,
   },
   {
-    id: 5,
-    title: "Contact",
-    path: "/contact",
-    newTab: false,
-  },
-  {
     id: 6,
     title: "Pages",
     newTab: false,

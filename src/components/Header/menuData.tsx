@@ -22,7 +22,7 @@ const menuData: Menu[] = [
   {
     id: 3,
     title: "Support",
-    path: "/contact",
+    path: "/#contact",
     newTab: false,
   },
   {
@@ -36,12 +36,12 @@ const menuData: Menu[] = [
         path: "/about",
         newTab: false,
       },
-      {
+      /*{
         id: 42,
         title: "Contact Page",
         path: "/contact",
         newTab: false,
-      },
+      },*/
       /*{
         id: 43,
         title: "Blog Grid Page",

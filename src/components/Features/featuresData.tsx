@@ -3,45 +3,119 @@ import { Feature } from "@/types/feature";
 const featuresData: Feature[] = [
   {
     id: 1,
-    icon: "/images/features/secure-payment.jpg",
-    title: "Secure Crypto Payments",
+    icon: (
+      <svg width="40" height="41" viewBox="0 0 40 41" className="fill-current">
+        <path
+          opacity="0.5"
+          d="M37.7778 40.2223H24C22.8954 40.2223 22 39.3268 22 38.2223V20.0001C22 18.8955 22.8954 18.0001 24 18.0001H37.7778C38.8823 18.0001 39.7778 18.8955 39.7778 20.0001V38.2223C39.7778 39.3268 38.8823 40.2223 37.7778 40.2223Z"
+        ></path>
+        <path d="M23.2222 0.222168H3.77778C2.67321 0.222168 1.77778 1.1176 1.77778 2.22217V38.2222C1.77778 39.3267 2.67321 40.2222 3.77778 40.2222H23.2222C24.3268 40.2222 25.2222 39.3267 25.2222 38.2222V2.22217C25.2222 1.1176 24.3268 0.222168 23.2222 0.222168ZM15.4444 36.2222C14.3399 36.2222 13.4444 35.3267 13.4444 34.2222C13.4444 33.1176 14.3399 32.2222 15.4444 32.2222C16.549 32.2222 17.4444 33.1176 17.4444 34.2222C17.4444 35.3267 16.549 36.2222 15.4444 36.2222Z"></path>
+      </svg>
+    ),
+    title: "Cross-Platform Support",
     paragraph:
-      "Accept tuition payments in Bitcoin, Ethereum, and other cryptocurrencies through a secure platform designed for African educational institutions.",
+      "Access your education payment dashboard from any device. Our responsive platform works seamlessly across desktop, mobile, and tablet devices.",
   },
   {
     id: 2,
-    icon: "/images/features/lower-fees.jpg",
-    title: "Up to 80% Lower Fees",
+    icon: (
+      <svg width="40" height="40" viewBox="0 0 40 40" className="fill-current">
+        <path
+          opacity="0.5"
+          d="M20.5914 34.2584C20.2394 34.5045 19.7603 34.5045 19.4082 34.2584L4.0082 23.7656C3.56369 23.4556 3.33326 22.9481 3.33326 22.4124V11.4124C3.33326 11.0477 3.33326 10.9477 3.72366 11.2124L19.4082 21.7653C19.7603 22.0114 20.2394 22.0114 20.5914 21.7653L36.2759 11.2124C36.6663 10.9477 36.6663 11.0477 36.6663 11.4124V22.4124C36.6663 22.9481 36.4359 23.4556 35.9914 23.7656L20.5914 34.2584Z"
+        ></path>
+        <path d="M19.4082 27.9124C19.7603 28.1584 20.2393 28.1584 20.5914 27.9124L36.2759 17.3593C36.6663 17.0947 36.6663 16.9947 36.6663 17.3593V6.35931C36.6663 5.82357 36.4358 5.31605 35.9914 5.00605L20.5914 -5.49688C20.2394 -5.74299 19.7603 -5.74299 19.4082 -5.49688L4.0082 5.00605C3.56369 5.31605 3.33326 5.82357 3.33326 6.35931V17.3593C3.33326 17.7239 3.33326 17.8239 3.72366 17.5593L19.4082 6.9562C19.7603 6.7101 20.2393 6.7101 20.5914 6.9562L36.2759 17.5593C36.6663 17.8239 36.6663 17.7239 36.6663 17.3593C36.6663 16.9947 36.6663 17.0947 36.2759 17.3593L20.5914 27.9124Z"></path>
+      </svg>
+    ),
+    title: "Low Transaction Fees",
     paragraph:
-      "Eliminate costly international transfer fees and currency conversion charges, making education more affordable for students across Africa.",
+      "Save up to 80% on payment processing fees compared to traditional banking systems. Our blockchain technology reduces costs while maintaining high security standards.",
   },
   {
     id: 3,
-    icon: "/images/features/instant-verification.jpg",
-    title: "Instant Verification",
+    icon: (
+      <svg width="40" height="40" viewBox="0 0 40 40" className="fill-current">
+        <path
+          opacity="0.5"
+          d="M38.3333 26.6667C38.3333 32.9833 33.65 38.0733 29.0333 38.0733C27.2 38.0733 24.5833 36.8467 24.5833 34.6133C24.5833 33.2467 25.9167 32.1133 27.55 32.1133C28.8833 32.1133 29.7167 31.18 29.7167 30.0467C29.7167 28.0133 26.1833 26.5467 23.3167 26.5467C18.65 26.5467 14.35 29.7133 14.35 36.4133C14.35 37.9967 16.05 40 19.7667 40H29.0333C35.9833 40 40 33.3533 40 26.6667C40 19.98 35.9833 13.3333 29.0333 13.3333C28.25 13.3333 27.5167 13.08 26.85 12.6667C27.2833 13.3333 27.55 14.1133 27.55 14.9967C27.55 17.3533 25.65 19.2533 23.3167 19.2533C20.9833 19.2533 19.0833 17.3533 19.0833 14.9967C19.0833 12.6467 20.9833 10.74 23.3167 10.74C24.2 10.74 24.9833 10.9867 25.65 11.42C24.9333 8.00001 22.5333 7.18667 19.7667 7.18667C16.3167 7.18667 13.4333 9.14 13.4333 13.94V36.4133C13.4333 38.8333 11.7333 40 9.96667 40C5.35 40 0.666672 34.9133 0.666672 28.5967C0.666672 22.2867 5.35 17.1933 9.96667 17.1933C11.1833 17.1933 12.9833 17.9267 12.9833 19.7933C12.9833 21.1567 11.65 22.2933 10.0167 22.2933C8.68334 22.2933 7.85 23.2267 7.85 24.36C7.85 26.3933 11.3833 27.8567 14.25 27.8567C18.9167 27.8567 23.2167 24.6933 23.2167 17.9933C23.2167 16.4067 21.5167 14.4067 17.8 14.4067H9.96667C3.01667 14.4067 -1 21.0533 -1 27.74C-1 34.4267 3.01667 41.0733 9.96667 41.0733C10.75 41.0733 11.4833 41.3267 12.15 41.74C11.7167 41.0733 11.45 40.2933 11.45 39.41C11.45 37.0533 13.35 35.1533 15.6833 35.1533C18.0167 35.1533 19.9167 37.0533 19.9167 39.41C19.9167 41.7633 18.0167 43.67 15.6833 43.67C14.8 43.67 14.0167 43.4233 13.35 42.99C14.0667 46.41 16.4667 47.2233 19.2333 47.2233C22.6833 47.2233 25.5667 45.27 25.5667 40.47V17.9933C25.5667 15.5733 27.2667 14.4067 29.0333 14.4067C33.65 14.4067 38.3333 19.4933 38.3333 25.81V26.6667Z"
+        ></path>
+        <path d="M26.6667 0.333328H13.3333C6.33333 0.333328 0.666664 6.00001 0.666664 12.9999V13.0001C0.666664 14.2667 1.41667 15.3333 2.5 15.7666C2.98333 15.9666 3.5 16.0666 4 16.0666C5.83333 16.0666 7.33333 14.5666 7.33333 12.7333V12.7331C7.33333 9.78324 9.71667 7.39993 12.6667 7.39993H27.3333C30.2833 7.39993 32.6667 9.78324 32.6667 12.7331V12.7333C32.6667 14.5666 34.1667 16.0666 36 16.0666C36.5 16.0666 37.0167 15.9666 37.5 15.7666C38.5833 15.3333 39.3333 14.2667 39.3333 13.0001V12.9999C39.3333 6.00001 33.6667 0.333328 26.6667 0.333328Z"></path>
+      </svg>
+    ),
+    title: "Instant Settlement",
     paragraph:
-      "Payments are verified within seconds, allowing immediate confirmation of student registrations without the usual banking delays.",
+      "Education payments are processed within seconds instead of days. Forget about waiting for bank transfers or clearing checks - crypto payments are confirmed almost instantly.",
   },
   {
     id: 4,
-    icon: "/images/features/financial-dashboard.jpg",
-    title: "Financial Dashboard",
+    icon: (
+      <svg width="40" height="41" viewBox="0 0 40 41" className="fill-current">
+        <path
+          opacity="0.5"
+          d="M39.5556 30.9554V35.5222C39.5556 37.7555 39.5556 39.8888 35.2222 39.8888H30.6556"
+        ></path>
+        <path
+          opacity="0.5"
+          d="M0.444397 30.9554V35.5222C0.444397 37.7555 0.444397 39.8888 4.77773 39.8888H9.34439"
+        ></path>
+        <path
+          opacity="0.5"
+          d="M39.5556 10.0444V5.47773C39.5556 3.24439 39.5556 1.11107 35.2222 1.11107H30.6556"
+        ></path>
+        <path
+          opacity="0.5"
+          d="M0.444397 10.0444V5.47773C0.444397 3.24439 0.444397 1.11107 4.77773 1.11107H9.34439"
+        ></path>
+        <path d="M22 9.71112C22 8.60656 20.9558 7.99996 20 7.99996C19.0442 7.99996 18 8.60656 18 9.71112V32.2887C18 33.3933 19.0442 33.9999 20 33.9999C20.9558 33.9999 22 33.3933 22 32.2887V9.71112Z"></path>
+        <path d="M33.5554 20.4443C32.6093 20.4443 31.9998 21.4874 31.9998 22.5006C31.9998 23.5139 32.6093 24.5556 33.5554 24.5556H36.5554C37.5015 24.5556 38.111 23.5125 38.111 22.4993C38.111 21.486 37.5015 20.4443 36.5554 20.4443H33.5554Z"></path>
+        <path d="M3.44439 20.4443C2.49828 20.4443 1.88883 21.4874 1.88883 22.5006C1.88883 23.5139 2.49828 24.5556 3.44439 24.5556H6.44439C7.39051 24.5556 7.99996 23.5125 7.99996 22.4993C7.99996 21.486 7.39051 20.4443 6.44439 20.4443H3.44439Z"></path>
+      </svg>
+    ),
+    title: "Transparent Transactions",
     paragraph:
-      "Easily track all payments, generate reports, and manage your institution's cryptocurrency finances through our intuitive dashboard.",
+      "All payment records are stored on the blockchain, providing complete transparency and auditability for both students and institutions. Track payments in real-time with detailed records.",
   },
   {
     id: 5,
-    icon: "/images/features/multi-wallet.jpg",
-    title: "Multi-Wallet Support",
+    icon: (
+      <svg width="40" height="40" viewBox="0 0 40 40" className="fill-current">
+        <path
+          opacity="0.5"
+          d="M20 30C22.75 30 25 32.25 25 35C25 37.75 22.75 40 20 40C17.25 40 15 37.75 15 35C15 32.25 17.25 30 20 30Z"
+        ></path>
+        <path
+          opacity="0.5"
+          d="M30 20C32.75 20 35 22.25 35 25C35 27.75 32.75 30 30 30C27.25 30 25 27.75 25 25C25 22.25 27.25 20 30 20Z"
+        ></path>
+        <path
+          opacity="0.5"
+          d="M20 10C22.75 10 25 12.25 25 15C25 17.75 22.75 20 20 20C17.25 20 15 17.75 15 15C15 12.25 17.25 10 20 10Z"
+        ></path>
+        <path
+          opacity="0.5"
+          d="M10 20C12.75 20 15 22.25 15 25C15 27.75 12.75 30 10 30C7.25 30 5 27.75 5 25C5 22.25 7.25 20 10 20Z"
+        ></path>
+        <path d="M20 -6.16136e-06C25.5 -6.16136e-06 30 4.5 30 10C30 15.5 25.5 20 20 20C14.5 20 10 15.5 10 10C10 4.5 14.5 -6.16136e-06 20 -6.16136e-06Z"></path>
+      </svg>
+    ),
+    title: "Multiple Cryptocurrencies",
     paragraph:
-      "Compatible with popular wallets like MetaMask, Trust Wallet, and Coinbase Wallet, making payments accessible to all students.",
+      "Pay with your preferred cryptocurrency. Edupay supports Bitcoin, Ethereum, USDC, and other popular cryptocurrencies to give you maximum flexibility for your education payments.",
   },
   {
     id: 6,
-    icon: "/images/features/global-access.jpg",
-    title: "Global Accessibility",
+    icon: (
+      <svg width="40" height="40" viewBox="0 0 40 40" className="fill-current">
+        <path
+          opacity="0.5"
+          d="M18.1184 38.2803C13.1976 36.7865 9.3387 32.9276 7.84503 28.0069L7.01496 25.1732C6.11676 21.1218 7.30982 19.9287 11.3612 18.0505C14.8582 16.4605 21.3153 13.4834 21.3153 13.4834L28.2374 32.1483L18.1184 38.2803Z"
+        ></path>
+        <path d="M30.8154 0.428394L21.3153 13.4832C21.3153 13.4832 14.8582 16.4604 11.3612 18.0504L18.1184 38.2804L30.8154 32.4133L36.4941 8.9226C37.5023 3.64818 33.5829 -1.27153 30.8154 0.428394Z"></path>
+      </svg>
+    ),
+    title: "Institutional Integration",
     paragraph:
-      "Enable international students to pay tuition easily from anywhere in the world without expensive wire transfers or conversion fees.",
+      "Edupay seamlessly integrates with existing school management systems, allowing educational institutions to easily adopt cryptocurrency payments without disrupting their current workflows.",
   },
 ];
 

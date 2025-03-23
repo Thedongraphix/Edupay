@@ -1,8 +1,11 @@
 "use client"
 
 import * as React from "react"
-import { type TooltipProps } from "recharts"
 import {
+  Area,
+  AreaChart,
+  Bar,
+  BarChart,
   CartesianGrid,
   Cell,
   Legend,
@@ -13,286 +16,108 @@ import {
   ResponsiveContainer,
   Sector,
   Tooltip,
+  TooltipProps,
   XAxis,
   YAxis,
 } from "recharts"
+import { cn } from "@/lib/utils"
 
-export type ChartConfig = Record<
-  string,
-  {
-    label: string
-    color?: string
-  }
->
+export type ChartConfig = Record<string, any>
 
-interface ChartContainerProps extends React.HTMLAttributes<HTMLDivElement> {
-  config: ChartConfig
+type ChartProps = React.HTMLAttributes<HTMLDivElement> & {
+  config?: ChartConfig
 }
 
-export function ChartContainer({
-  config,
-  children,
-  className,
-  ...props
-}: ChartContainerProps) {
-  // Define CSS variables for chart colors
-  const style = React.useMemo(() => {
-    return Object.entries(config).reduce((acc, [key, value]) => {
-      if (value.color) {
-        acc[`--color-${key}`] = value.color
-      }
-      return acc
-    }, {} as Record<string, string>)
-  }, [config])
+export const Chart = React.forwardRef<HTMLDivElement, ChartProps>(
+  ({ className, children, config, style, ...props }, forwardedRef) => {
+    const customStyles = React.useMemo(() => {
+      if (!config) return {}
 
-  return (
-    <div
-      className={className}
-      style={{
-        ...style,
-        "--color-primary": "var(--primary)",
-        "--color-secondary": "var(--secondary)",
-        "--color-muted": "var(--muted)",
-      }}
-      {...props}
-    >
-      <ResponsiveContainer width="100%" height="100%">
+      return Object.entries(config).reduce((acc, [key, value]) => {
+        acc[`--${key}`] = value
+        return acc
+      }, {} as Record<string, string>)
+    }, [config])
+
+    return (
+      <div
+        ref={forwardedRef}
+        className={cn("chart-container", className)}
+        style={{
+          ...style,
+          ["--color-primary" as string]: "var(--primary)",
+          ["--color-secondary" as string]: "var(--secondary)",
+          ["--color-muted" as string]: "var(--muted)",
+        }}
+        {...props}
+      >
         {children}
-      </ResponsiveContainer>
-    </div>
-  )
-}
+      </div>
+    )
+  }
+)
+Chart.displayName = "Chart"
 
-interface ChartTooltipContentProps {
-  payload?: Array<{ name: string; value: number; payload: any }>
-  label?: string
+interface SimpleChartTooltipProps {
   active?: boolean
+  payload?: Array<{
+    value: number
+    name: string
+    [key: string]: any
+  }>
+  label?: string
   formatter?: (value: number, name: string, props: any) => React.ReactNode
   labelFormatter?: (label: string) => React.ReactNode
-  itemSorter?: (a: any) => number
-  config?: ChartConfig
-  hideLabel?: boolean
+  valueFormatter?: (value: number) => string
+  className?: string
 }
 
-export function ChartTooltipContent({
+export function ChartTooltip({
+  active,
   payload,
   label,
-  active,
+  className,
   formatter,
   labelFormatter,
-  itemSorter,
-  config,
-  hideLabel = false,
-}: ChartTooltipContentProps) {
+  valueFormatter = (value: number) => `${value}`,
+}: SimpleChartTooltipProps) {
   if (!active || !payload?.length) {
     return null
   }
 
-  const sortedPayload = [...payload].sort((a, b) => {
-    if (itemSorter) {
-      return itemSorter(a) - itemSorter(b)
-    }
-    return b.value - a.value
-  })
-
   return (
-    <div className="rounded-lg border bg-background p-2 shadow-sm">
-      {label && !hideLabel && (
-        <div className="border-b px-4 py-2">
-          <div className="font-medium">
-            {labelFormatter ? labelFormatter(label) : label}
-          </div>
+    <div className={cn("rounded-lg border bg-background p-2 shadow-sm", className)}>
+      <div className="grid grid-cols-2 gap-2">
+        <div className="flex flex-col">
+          <span className="text-sm font-medium">
+            {labelFormatter ? labelFormatter(label as string) : label}
+          </span>
         </div>
-      )}
-      <div className="px-4 py-2">
-        {sortedPayload.map((item, i) => {
-          const { name, value, payload: itemPayload } = item
-          const dataKey = name.toLowerCase()
-          const itemConfig = config?.[dataKey] || { label: name }
-          const itemColor = itemPayload.fill || itemConfig.color
-
-          return (
-            <div key={`${name}-${i}`} className="flex items-center gap-2 py-1">
+        {payload.map((item, index) => (
+          <div key={index} className="flex flex-col">
+            <span
+              className="flex items-center gap-1 text-sm font-medium"
+              style={{
+                color: item.color,
+              }}
+            >
               <div
                 className="h-2 w-2 rounded-full"
-                style={{ backgroundColor: itemColor }}
+                style={{
+                  backgroundColor: item.color,
+                }}
               />
-              <div className="flex w-full justify-between gap-2">
-                <div className="font-medium">
-                  {itemConfig.label ? itemConfig.label : name}
-                </div>
-                <div>{formatter ? formatter(value, name, item) : value}</div>
-              </div>
-            </div>
-          )
-        })}
+              {item.name}
+            </span>
+            <span className="text-xs text-muted-foreground">
+              {formatter
+                ? formatter(item.value, item.name, item)
+                : valueFormatter(item.value)}
+            </span>
+          </div>
+        ))}
       </div>
     </div>
-  )
-}
-
-interface ChartTooltipProps extends TooltipProps<any, any> {
-  content?: React.ReactNode
-  formatter?: (value: number, name: string, props: any) => React.ReactNode
-  labelFormatter?: (label: string) => React.ReactNode
-  itemSorter?: (a: any) => number
-  config?: ChartConfig
-  hideLabel?: boolean
-}
-
-export function ChartTooltip({
-  content,
-  formatter,
-  labelFormatter,
-  itemSorter,
-  config,
-  hideLabel,
-  ...props
-}: ChartTooltipProps) {
-  return (
-    <Tooltip
-      content={
-        content || (
-          <ChartTooltipContent
-            formatter={formatter}
-            labelFormatter={labelFormatter}
-            itemSorter={itemSorter}
-            config={config}
-            hideLabel={hideLabel}
-          />
-        )
-      }
-      {...props}
-    />
-  )
-}
-
-interface ChartLegendProps {
-  payload?: Array<{ value: string; payload: any }>
-  config?: ChartConfig
-  align?: "left" | "center" | "right"
-  verticalAlign?: "top" | "middle" | "bottom"
-  layout?: "horizontal" | "vertical"
-  iconSize?: number
-  iconType?:
-    | "line"
-    | "square"
-    | "rect"
-    | "circle"
-    | "cross"
-    | "diamond"
-    | "star"
-    | "triangle"
-    | "wye"
-  onClick?: (e: React.MouseEvent, id: string) => void
-}
-
-export function ChartLegend({
-  payload,
-  config,
-  align = "right",
-  verticalAlign = "middle",
-  layout = "vertical",
-  iconSize = 12,
-  iconType = "circle",
-  onClick,
-}: ChartLegendProps) {
-  return (
-    <Legend
-      content={({ payload: legendPayload }) => {
-        if (!legendPayload?.length) {
-          return null
-        }
-
-        return (
-          <div
-            className={
-              layout === "horizontal" ? "flex flex-wrap" : "flex flex-col"
-            }
-            style={{
-              textAlign: align,
-              justifyContent:
-                align === "left"
-                  ? "flex-start"
-                  : align === "right"
-                  ? "flex-end"
-                  : "center",
-              alignItems:
-                verticalAlign === "top"
-                  ? "flex-start"
-                  : verticalAlign === "bottom"
-                  ? "flex-end"
-                  : "center",
-            }}
-          >
-            {legendPayload.map((entry, i) => {
-              const { value, payload } = entry
-              const dataKey = payload.dataKey
-              const itemConfig = config?.[dataKey] || { label: value }
-              const itemColor = entry.color || itemConfig.color
-
-              return (
-                <div
-                  key={`${value}-${i}`}
-                  className={`flex items-center gap-2 px-2 py-1 ${
-                    onClick && "cursor-pointer"
-                  }`}
-                  onClick={onClick ? (e) => onClick(e, dataKey) : undefined}
-                  style={{
-                    opacity: payload.inactive ? 0.5 : 1,
-                  }}
-                >
-                  {iconType === "circle" ? (
-                    <div
-                      className="rounded-full"
-                      style={{
-                        backgroundColor: itemColor,
-                        width: iconSize,
-                        height: iconSize,
-                      }}
-                    />
-                  ) : iconType === "square" ? (
-                    <div
-                      className="rounded-sm"
-                      style={{
-                        backgroundColor: itemColor,
-                        width: iconSize,
-                        height: iconSize,
-                      }}
-                    />
-                  ) : iconType === "rect" ? (
-                    <div
-                      style={{
-                        backgroundColor: itemColor,
-                        width: iconSize,
-                        height: iconSize / 2,
-                      }}
-                    />
-                  ) : iconType === "line" ? (
-                    <div
-                      style={{
-                        backgroundColor: itemColor,
-                        width: iconSize,
-                        height: 2,
-                      }}
-                    />
-                  ) : null}
-                  <div className="text-sm">
-                    {itemConfig.label ? itemConfig.label : value}
-                  </div>
-                </div>
-              )
-            })}
-          </div>
-        )
-      }}
-      align={align}
-      verticalAlign={verticalAlign}
-      layout={layout}
-      payload={payload}
-      iconSize={iconSize}
-      iconType={iconType}
-    />
   )
 }
 

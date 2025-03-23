@@ -16,7 +16,7 @@ const Footer = () => {
                 </span>
                 </Link>
                 <p className="mb-9 text-base leading-relaxed text-body-color dark:text-body-color-dark">
-                Join the growing network of schools embracing crypto payments. Get started today and experience the future of educational transactions.
+                Empowering educational institutions with secure, low-cost blockchain payment solutions. Join over 500+ schools saving up to 80% on processing fees while providing students with seamless payment experiences.
                 </p>
                 <div className="flex items-center">
                   <a

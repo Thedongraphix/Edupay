@@ -1,44 +1,43 @@
-import { Testimonial } from "@/types/testimonial";
 import SectionTitle from "../Common/SectionTitle";
 import SingleTestimonial from "./SingleTestimonial";
 
-const testimonialData: Testimonial[] = [
+const testimonialData = [
   {
     id: 1,
-    name: "Musharof Chy",
-    designation: "Founder @TailGrids",
+    name: "Dr. Sarah Johnson",
+    designation: "Finance Director, Westlake University",
     content:
-      "EduPay has transformed how we handle school fees. The transparency and efficiency are remarkable.",
-    image: "/images/testimonials/auth-01.png",
+      "Edupay has transformed how we handle tuition payments. The reduction in processing fees alone has saved our institution over $50,000 annually, allowing us to reinvest in student programs.",
     star: 5,
+    image: "/images/testimonials/auth-01.png",
   },
   {
     id: 2,
-    name: "Devid Weilium",
-    designation: "Founder @UIdeck",
+    name: "Michael Chen",
+    designation: "CTO, Global Education Partners",
     content:
-      "Being able to pay my children's school fees with crypto has made the process so much easier.",
-    image: "/images/testimonials/auth-02.png",
+      "The security features of Edupay give us peace of mind. Blockchain verification means we can track every payment instantly, and our international students love the simplified process for cross-border payments.",
     star: 5,
+    image: "/images/testimonials/auth-02.png",
   },
   {
     id: 3,
-    name: "Lethium Frenci",
-    designation: "Founder @Lineicons",
+    name: "Emma Rodriguez",
+    designation: "Bursar, Lakeside College",
     content:
-      "The security and speed of transactions have greatly improved our financial operations.",
-    image: "/images/testimonials/auth-03.png",
+      "Implementation was surprisingly simple. The Edupay team provided exceptional support, and our students adapted quickly. We've seen a 40% decrease in payment delays since switching to this system.",
     star: 5,
+    image: "/images/testimonials/auth-03.png",
   },
 ];
 
 const Testimonials = () => {
   return (
-    <section className="dark:bg-bg-color-dark bg-gray-light relative z-10 py-16 md:py-20 lg:py-28">
+    <section className="relative z-10 bg-primary/[.03] py-16 md:py-20 lg:py-28">
       <div className="container">
         <SectionTitle
-          title="What Our Users Say"
-          paragraph="Join thousands of satisfied schools and parents using EduPay"
+          title="What Our Users Says"
+          paragraph="There are many variations of passages of Lorem Ipsum available but the majority have suffered alteration in some form."
           center
         />
 
@@ -48,7 +47,7 @@ const Testimonials = () => {
           ))}
         </div>
       </div>
-      <div className="absolute right-0 top-5 z-[-1]">
+      <div className="absolute top-5 right-0 z-[-1]">
         <svg
           width="238"
           height="531"
@@ -102,7 +101,7 @@ const Testimonials = () => {
           </defs>
         </svg>
       </div>
-      <div className="absolute bottom-5 left-0 z-[-1]">
+      <div className="absolute left-0 bottom-5 z-[-1]">
         <svg
           width="279"
           height="106"
@@ -131,10 +130,10 @@ const Testimonials = () => {
           <defs>
             <linearGradient
               id="paint0_linear_72:302"
-              x1="256.267"
-              y1="53.6717"
-              x2="-40.8688"
-              y2="8.15715"
+              x1="256.348"
+              y1="5.35829"
+              x2="256.348"
+              y2="103.197"
               gradientUnits="userSpaceOnUse"
             >
               <stop stopColor="#4A6CF7" stopOpacity="0" />
@@ -142,10 +141,10 @@ const Testimonials = () => {
             </linearGradient>
             <linearGradient
               id="paint1_linear_72:302"
-              x1="256.267"
-              y1="42.6717"
-              x2="-40.8688"
-              y2="-2.84285"
+              x1="256.348"
+              y1="-5.64171"
+              x2="256.348"
+              y2="92.1968"
               gradientUnits="userSpaceOnUse"
             >
               <stop stopColor="#4A6CF7" stopOpacity="0" />
@@ -153,10 +152,10 @@ const Testimonials = () => {
             </linearGradient>
             <linearGradient
               id="paint2_linear_72:302"
-              x1="256.267"
-              y1="64.6717"
-              x2="-40.8688"
-              y2="19.1572"
+              x1="256.348"
+              y1="16.3583"
+              x2="256.348"
+              y2="114.197"
               gradientUnits="userSpaceOnUse"
             >
               <stop stopColor="#4A6CF7" stopOpacity="0" />
@@ -164,10 +163,10 @@ const Testimonials = () => {
             </linearGradient>
             <linearGradient
               id="paint3_linear_72:302"
-              x1="256.267"
-              y1="76.6717"
-              x2="-40.8688"
-              y2="31.1572"
+              x1="256.348"
+              y1="28.3583"
+              x2="256.348"
+              y2="126.197"
               gradientUnits="userSpaceOnUse"
             >
               <stop stopColor="#4A6CF7" stopOpacity="0" />

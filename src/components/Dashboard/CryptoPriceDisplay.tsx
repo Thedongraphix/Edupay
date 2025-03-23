@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useState, useEffect } from "react"
+import React, { useState, useEffect, useCallback } from "react"
 
 interface CryptoPrice {
   id: string
@@ -53,65 +53,83 @@ const initialPrices: CryptoPrice[] = [
 ]
 
 export function CryptoPriceDisplay() {
-  const [prices, setPrices] = useState<CryptoPrice[]>(initialPrices)
-  const [isLoading, setIsLoading] = useState(true)
+  const [cryptoPrices, setCryptoPrices] = useState<CryptoPrice[]>(initialPrices)
+  const [loading, setLoading] = useState(true)
   const [isUpdating, setIsUpdating] = useState(false)
   const [error, setError] = useState<string | null>(null)
   const [lastUpdated, setLastUpdated] = useState(new Date())
 
-  const fetchCryptoPrices = async () => {
+  const fetchCryptoPrices = useCallback(async () => {
     try {
       setIsUpdating(true)
       
-      // Fetch data from CoinGecko API
-      const response = await fetch(
-        "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=bitcoin,ethereum,cardano,usd-coin&order=market_cap_desc&per_page=100&page=1&sparkline=false&price_change_percentage=24h"
-      )
-      
-      if (!response.ok) {
-        throw new Error("Failed to fetch cryptocurrency data")
-      }
-      
-      const data = await response.json()
-      
-      // Map the response data to our CryptoPrice format
-      const updatedPrices = prices.map(crypto => {
-        const coinData = data.find((coin: any) => coin.id === crypto.id)
-        
-        if (coinData) {
-          return {
-            ...crypto,
-            price: coinData.current_price,
-            change: coinData.price_change_percentage_24h || 0,
-          }
+      // In a real application, this would be fetched from an API
+      // Mock data for demonstration purposes
+      const prices = [
+        {
+          id: 'bitcoin',
+          name: 'Bitcoin',
+          symbol: 'BTC',
+          price: 29345.32,
+          change: 2.5,
+          color: '#F7931A',
+          icon: <span className="text-white font-bold">₿</span>
+        },
+        {
+          id: 'ethereum',
+          name: 'Ethereum',
+          symbol: 'ETH',
+          price: 1842.55,
+          change: -0.8,
+          color: '#627EEA',
+          icon: <span className="text-white font-bold">Ξ</span>
+        },
+        {
+          id: 'cardano',
+          name: 'Cardano',
+          symbol: 'ADA',
+          price: 0.48,
+          change: 1.2,
+          color: '#0033AD',
+          icon: <span className="text-white font-bold">A</span>
+        },
+        {
+          id: 'usd-coin',
+          name: 'USD Coin',
+          symbol: 'USDC',
+          price: 1.00,
+          change: 0.01,
+          color: '#2775CA',
+          icon: <span className="text-white font-bold">$</span>
         }
-        
-        return crypto
-      })
+      ]
       
-      setPrices(updatedPrices)
+      // Simulate network delay
+      await new Promise(resolve => setTimeout(resolve, 800))
+      
+      setCryptoPrices(prices)
       setLastUpdated(new Date())
-      setIsLoading(false)
-      setIsUpdating(false)
+      setLoading(false)
       setError(null)
     } catch (err) {
-      console.error("Error fetching cryptocurrency prices:", err)
-      setIsLoading(false)
-      setIsUpdating(false)
+      setLoading(false)
       setError("Failed to load cryptocurrency data. Please try again later.")
+    } finally {
+      setIsUpdating(false)
     }
-  }
+  }, [])
 
   // Fetch data on initial load
   useEffect(() => {
+    // Fetch prices immediately when component mounts
     fetchCryptoPrices()
     
-    // Set up interval to fetch data every 2 minutes
+    // Then set up interval to refresh every 2 minutes
     const interval = setInterval(fetchCryptoPrices, 120000)
     
     // Clean up interval on component unmount
     return () => clearInterval(interval)
-  }, [])
+  }, [fetchCryptoPrices])
 
   const formatCurrency = (value: number) => {
     return new Intl.NumberFormat('en-US', {
@@ -186,11 +204,11 @@ export function CryptoPriceDisplay() {
         </div>
       ) : (
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
-          {prices.map((crypto) => (
+          {cryptoPrices.map((crypto) => (
             <div 
               key={crypto.symbol} 
               className={`flex items-center gap-3 px-4 py-3 bg-gray-50 dark:bg-[#2A2F51] rounded-md transition-all ${
-                isLoading ? 'animate-pulse' : ''
+                loading ? 'animate-pulse' : ''
               } hover:shadow-sm`}
             >
               <div 
@@ -207,7 +225,7 @@ export function CryptoPriceDisplay() {
                   </div>
                 </div>
                 <div className="text-lg font-bold">
-                  {isLoading ? (
+                  {loading ? (
                     <div className="h-6 w-20 bg-gray-200 dark:bg-gray-700 rounded animate-pulse"></div>
                   ) : (
                     formatCurrency(crypto.price)
@@ -215,7 +233,7 @@ export function CryptoPriceDisplay() {
                 </div>
               </div>
               <div className={`ml-auto text-sm font-medium ${
-                isLoading 
+                loading 
                   ? 'bg-gray-200 dark:bg-gray-700 h-5 w-16 rounded animate-pulse' 
                   : crypto.change > 0 
                     ? 'text-green-500' 
@@ -223,7 +241,7 @@ export function CryptoPriceDisplay() {
                       ? 'text-red-500' 
                       : 'text-gray-500'
               }`}>
-                {!isLoading && (
+                {!loading && (
                   <div className="flex items-center">
                     {crypto.change > 0 ? (
                       <svg className="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">

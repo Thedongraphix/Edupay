@@ -13,8 +13,8 @@ const Video = () => {
     <section className="relative z-10 py-16 md:py-20 lg:py-28">
       <div className="container">
         <SectionTitle
-          title="We are ready to help"
-          paragraph="There are many narratives around crypto payments but at Edupay we make this process as seamless as possible."
+          title="See How Edupay Works in 2 Minutes"
+          paragraph="Watch how educational institutions are using Edupay to reduce payment processing costs by up to 80%, eliminate fraud, and provide students with a seamless payment experience across borders."
           center
           mb="80px"
         />

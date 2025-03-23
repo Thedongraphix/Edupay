@@ -4,11 +4,11 @@ import * as React from "react"
 import { Pie, PieChart, ResponsiveContainer, Sector } from "recharts"
 
 const data = [
-  { name: "Tuition", value: 1200, fill: "hsl(221.2 83.2% 53.3%)" },
-  { name: "Housing", value: 800, fill: "hsl(212 95% 68%)" },
-  { name: "Books", value: 250, fill: "hsl(216 92% 60%)" },
-  { name: "Activities", value: 180, fill: "hsl(210 98% 78%)" },
-  { name: "Other", value: 120, fill: "hsl(212 97% 87%)" },
+  { name: "Core Tuition", value: 1200, fill: "hsl(221.2 83.2% 53.3%)" },
+  { name: "Technology Fee", value: 250, fill: "hsl(212 95% 68%)" },
+  { name: "Library Fee", value: 120, fill: "hsl(216 92% 60%)" },
+  { name: "Registration Fee", value: 90, fill: "hsl(210 98% 78%)" },
+  { name: "Student Services", value: 60, fill: "hsl(212 97% 87%)" },
 ]
 
 // Active shape render function with enhanced styling

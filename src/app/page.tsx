@@ -1,32 +1,24 @@
-import AboutSectionOne from "@/components/About/AboutSectionOne";
-import AboutSectionTwo from "@/components/About/AboutSectionTwo";
-import Blog from "@/components/Blog";
-import Brands from "@/components/Brands";
-import ScrollUp from "@/components/Common/ScrollUp";
-import Contact from "@/components/Contact";
-import Features from "@/components/Features";
 import Hero from "@/components/Hero";
-import Pricing from "@/components/Pricing";
+import Features from "@/components/Features";
 import Testimonials from "@/components/Testimonials";
+import Pricing from "@/components/Pricing";
 import Video from "@/components/Video";
+import AboutSectionOne from "@/components/About/AboutSectionOne";
+import Contact from "@/components/Contact";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "EduPay | Cryptocurrency Payments for Educational Institutions",
-  description: "Revolutionize education finance with secure, low-fee cryptocurrency tuition payments. EduPay connects schools, universities, and students through blockchain technology.",
-  // other metadata
+  title: "Edupay - Cryptocurrency Payments for Education Institutions",
+  description: "Secure, instant, and low-fee cryptocurrency payment solution for schools, colleges, and universities. Simplify tuition payments, reduce costs, and improve transparency.",
 };
 
 export default function Home() {
   return (
     <>
-      <ScrollUp />
       <Hero />
       <Features />
-      <Video />
-      <Brands />
       <AboutSectionOne />
-      <AboutSectionTwo />
+      <Video />
       <Testimonials />
       <Pricing />
       <Contact />

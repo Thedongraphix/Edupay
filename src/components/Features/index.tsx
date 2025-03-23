@@ -5,11 +5,14 @@ import featuresData from "./featuresData";
 const Features = () => {
   return (
     <>
-      <section id="features" className="py-16 md:py-20 lg:py-28">
+      <section
+        id="features"
+        className="bg-primary/[.03] py-16 md:py-20 lg:py-28"
+      >
         <div className="container">
           <SectionTitle
-            title="Why Choose EduPay"
-            paragraph="EduPay provides educational institutions across Africa with secure, affordable cryptocurrency payment solutions that reduce costs by up to 80% while increasing accessibility for all students."
+            title="Why Choose Edupay for Education Payments"
+            paragraph="Edupay offers a comprehensive cryptocurrency payment solution designed specifically for educational institutions and students, delivering speed, security, and savings on every transaction."
             center
           />
 
