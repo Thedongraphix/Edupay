@@ -5,8 +5,8 @@ import Breadcrumb from "@/components/Common/Breadcrumb";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "About Us | Edupaydefi",
-  description: "Revolutionising crypto payments for education",
+  title: "About EduPay | Crypto Education Payments",
+  description: "Learn how EduPay is revolutionizing education payments by connecting institutions, students, and parents through secure cryptocurrency transactions.",
   // other metadata
 };
 
@@ -14,8 +14,8 @@ const AboutPage = () => {
   return (
     <>
       <Breadcrumb
-        pageName="About Page"
-        description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. In varius eros eget sapien consectetur ultrices. Ut quis dapibus libero."
+        pageName="About EduPay"
+        description="We're simplifying education payments through blockchain technology, making tuition transfers more secure, affordable, and accessible globally."
       />
       <AboutSectionOne />
       <AboutSectionTwo />

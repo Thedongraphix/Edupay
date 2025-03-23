@@ -14,25 +14,44 @@ const Hero = () => {
             <div className="w-full px-4 lg:w-1/2">
               <div className="text-center lg:text-left">
                 <h1 className="mb-5 text-3xl font-bold leading-tight text-black dark:text-white sm:text-4xl sm:leading-tight md:text-5xl md:leading-tight">
-                  Transform School Payments with Crypto
+                  Accept Crypto Tuition Payments with Confidence
                 </h1>
                 <p className="mb-12 text-base !leading-relaxed text-body-color dark:text-body-color-dark sm:text-lg md:text-xl">
-                Secure, instant, and borderless payments for educational institutions.
-                Join over 1000+ schools already using our platform.
+                  EduPay helps educational institutions embrace cryptocurrency payments with 80% lower fees than traditional methods, instant verification, and complete security. Our platform makes paying tuition with crypto simple for both institutions and students.
                 </p>
                 <div className="flex flex-col items-center justify-center space-y-4 sm:flex-row sm:space-x-4 sm:space-y-0 lg:justify-start">
                   <Link
-                    href="#"
+                    href="/signup"
                     className="rounded-sm bg-primary px-8 py-4 text-base font-semibold text-white duration-300 ease-in-out hover:bg-primary/80"
                   >
-                    🔥 Get Started
+                    Start Accepting Crypto
                   </Link>
                   <Link
-                    href="#"
+                    href="/dashboard"
                     className="inline-block rounded-sm bg-black px-8 py-4 text-base font-semibold text-white duration-300 ease-in-out hover:bg-black/90 dark:bg-white/10 dark:text-white dark:hover:bg-white/5"
                   >
-                    Connect Wallet
+                    View Demo Dashboard
                   </Link>
+                </div>
+                <div className="mt-6 flex flex-wrap items-center justify-center lg:justify-start">
+                  <p className="text-base font-medium text-body-color">
+                    Supporting major cryptocurrencies:
+                  </p>
+                  <div className="flex items-center space-x-3 pl-2">
+                    <div className="h-8 w-8 rounded-full bg-[#F7931A] flex items-center justify-center">
+                      <span className="text-white font-bold text-xs">₿</span>
+                    </div>
+                    <div className="h-8 w-8 rounded-full bg-[#627EEA] flex items-center justify-center">
+                      <span className="text-white font-bold text-xs">Ξ</span>
+                    </div>
+                    <div className="h-8 w-8 rounded-full bg-[#2775CA] flex items-center justify-center">
+                      <span className="text-white font-bold text-xs">$</span>
+                    </div>
+                    <div className="h-8 w-8 rounded-full bg-[#0033AD] flex items-center justify-center">
+                      <span className="text-white font-bold text-xs">A</span>
+                    </div>
+                    <span className="text-xs text-body-color">& more</span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -42,11 +61,12 @@ const Hero = () => {
               <div className="relative mx-auto mt-12 max-w-[500px] lg:mt-0">
                 <Image
                   src="/images/hero/hero-image.jpg" // Make sure to add your image
-                  alt="Hero Image"
+                  alt="EduPay Cryptocurrency School Payments"
                   width={500}
                   height={375}
                   className="rounded-xl"
                 />
+                <div className="absolute -bottom-6 -left-6 z-[-1] h-full w-full rounded-xl bg-primary/30 dark:bg-primary/10"></div>
               </div>
             </div>
           </div>
@@ -286,8 +306,8 @@ const Hero = () => {
                 gradientUnits="userSpaceOnUse"
                 gradientTransform="translate(220 63) rotate(90) scale(43)"
               >
-                <stop offset="0.145833" stopColor="white" stopOpacity="0" />
-                <stop offset="1" stopColor="white" stopOpacity="0.08" />
+                <stop offset="0.145833" stopColor="#4A6CF7" stopOpacity="0" />
+                <stop offset="1" stopColor="#4A6CF7" stopOpacity="0.08" />
               </radialGradient>
             </defs>
           </svg>

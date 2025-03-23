@@ -11,8 +11,8 @@ const Pricing = () => {
     <section id="pricing" className="relative z-10 py-16 md:py-20 lg:py-28">
       <div className="container">
         <SectionTitle
-          title="Simple and Affordable Pricing"
-          paragraph="There are many variations of passages of Lorem Ipsum available but the majority have suffered alteration in some form."
+          title="Simple Crypto Payment Processing"
+          paragraph="Transparent pricing for all educational institutions. No hidden fees or conversion charges when accepting cryptocurrency payments."
           center
           width="665px"
         />
@@ -59,44 +59,63 @@ const Pricing = () => {
 
         <div className="grid grid-cols-1 gap-x-8 gap-y-10 md:grid-cols-2 lg:grid-cols-3">
           <PricingBox
-            packageName="Lite"
-            price={isMonthly ? "40" : "120"}
+            packageName="Starter"
+            price={isMonthly ? "149" : "1,490"}
             duration={isMonthly ? "mo" : "yr"}
-            subtitle="Lorem ipsum dolor sit amet adiscing elit Mauris egestas enim."
+            subtitle="Ideal for schools just beginning to accept cryptocurrency payments."
           >
-            <OfferList text="All UI Components" status="active" />
-            <OfferList text="Use with Unlimited Projects" status="active" />
-            <OfferList text="Commercial Use" status="active" />
-            <OfferList text="Email Support" status="active" />
-            <OfferList text="Lifetime Access" status="inactive" />
-            <OfferList text="Free Lifetime Updates" status="inactive" />
+            <OfferList text="0.8% transaction fee" status="active" />
+            <OfferList text="Up to 500 student accounts" status="active" />
+            <OfferList text="BTC, ETH, USDC payments" status="active" />
+            <OfferList text="Live market price updates" status="active" />
+            <OfferList text="Basic payment dashboard" status="active" />
+            <OfferList text="Email support" status="active" />
+            <OfferList text="Instant USD conversion" status="inactive" />
+            <OfferList text="Integration with school systems" status="inactive" />
           </PricingBox>
           <PricingBox
-            packageName="Basic"
-            price={isMonthly ? "399" : "789"}
+            packageName="Professional"
+            price={isMonthly ? "299" : "2,990"}
             duration={isMonthly ? "mo" : "yr"}
-            subtitle="Lorem ipsum dolor sit amet adiscing elit Mauris egestas enim."
+            subtitle="Complete solution for established educational institutions."
+            featured={true}
           >
-            <OfferList text="All UI Components" status="active" />
-            <OfferList text="Use with Unlimited Projects" status="active" />
-            <OfferList text="Commercial Use" status="active" />
-            <OfferList text="Email Support" status="active" />
-            <OfferList text="Lifetime Access" status="active" />
-            <OfferList text="Free Lifetime Updates" status="inactive" />
+            <OfferList text="0.5% transaction fee" status="active" />
+            <OfferList text="Unlimited student accounts" status="active" />
+            <OfferList text="All major cryptocurrencies" status="active" />
+            <OfferList text="Live market price updates" status="active" />
+            <OfferList text="Advanced payment dashboard" status="active" />
+            <OfferList text="Priority email & chat support" status="active" />
+            <OfferList text="Instant USD conversion" status="active" />
+            <OfferList text="Integration with school systems" status="active" />
           </PricingBox>
           <PricingBox
-            packageName="Plus"
-            price={isMonthly ? "589" : "999"}
-            duration={isMonthly ? "mo" : "yr"}
-            subtitle="Lorem ipsum dolor sit amet adiscing elit Mauris egestas enim."
+            packageName="Enterprise"
+            price={isMonthly ? "Custom" : "Custom"}
+            duration={isMonthly ? "" : ""}
+            subtitle="Tailored solutions for large universities and education systems."
           >
-            <OfferList text="All UI Components" status="active" />
-            <OfferList text="Use with Unlimited Projects" status="active" />
-            <OfferList text="Commercial Use" status="active" />
-            <OfferList text="Email Support" status="active" />
-            <OfferList text="Lifetime Access" status="active" />
-            <OfferList text="Free Lifetime Updates" status="active" />
+            <OfferList text="Volume-based pricing" status="active" />
+            <OfferList text="Unlimited users & transactions" status="active" />
+            <OfferList text="Complete crypto portfolio" status="active" />
+            <OfferList text="Market analytics & forecasting" status="active" />
+            <OfferList text="Custom financial integrations" status="active" />
+            <OfferList text="Dedicated account manager" status="active" />
+            <OfferList text="Instant multi-currency conversion" status="active" />
+            <OfferList text="White-labeled payment portal" status="active" />
           </PricingBox>
+        </div>
+        
+        <div className="mt-12 flex flex-wrap items-center justify-center space-x-4 text-center">
+          <p className="mb-4 text-base text-body-color dark:text-body-color-dark">
+            <span className="font-semibold text-black dark:text-white">All plans include:</span> No setup fees, 24/7 blockchain transaction monitoring, and automatic payment reconciliation
+          </p>
+          <a
+            href="/contact"
+            className="inline-flex items-center justify-center rounded-md bg-primary px-6 py-3 text-center text-base font-medium text-white hover:bg-primary/90"
+          >
+            Contact for Demo
+          </a>
         </div>
       </div>
 

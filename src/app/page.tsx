@@ -12,8 +12,8 @@ import Video from "@/components/Video";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Edupay",
-  description: "A crypto payment gateway for education",
+  title: "EduPay | Cryptocurrency Payments for Educational Institutions",
+  description: "Revolutionize education finance with secure, low-fee cryptocurrency tuition payments. EduPay connects schools, universities, and students through blockchain technology.",
   // other metadata
 };
 

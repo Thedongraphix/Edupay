@@ -12,13 +12,13 @@ const AboutSectionTwo = () => {
             >
               <Image
                 src="/images/about/about-image-2.svg"
-                alt="about image"
+                alt="EduPay payment process"
                 fill
                 className="drop-shadow-three dark:hidden dark:drop-shadow-none"
               />
               <Image
                 src="/images/about/about-image-2-dark.svg"
-                alt="about image"
+                alt="EduPay payment process"
                 fill
                 className="hidden drop-shadow-three dark:block dark:drop-shadow-none"
               />
@@ -28,26 +28,34 @@ const AboutSectionTwo = () => {
             <div className="max-w-[470px]">
               <div className="mb-9">
                 <h3 className="mb-4 text-xl font-bold text-black dark:text-white sm:text-2xl lg:text-xl xl:text-2xl">
-                  Connect Your Wallet 
+                  Seamless Cryptocurrency Payments
                 </h3>
                 <p className="text-base font-medium leading-relaxed text-body-color sm:text-lg sm:leading-relaxed">
-                 Connect Your Wallet to execute a payment 
+                  Connect any compatible cryptocurrency wallet including MetaMask, Trust Wallet, or Coinbase Wallet to make payments instantly. Our system supports a wide range of cryptocurrencies, giving you flexibility and choice.
                 </p>
               </div>
               <div className="mb-9">
                 <h3 className="mb-4 text-xl font-bold text-black dark:text-white sm:text-2xl lg:text-xl xl:text-2xl">
-                  Select the amount you want to pay
+                  Transparent & Secure Transactions
                 </h3>
                 <p className="text-base font-medium leading-relaxed text-body-color sm:text-lg sm:leading-relaxed">
-                  Quote an amount and sign the transaction 
+                  Every payment is recorded on the blockchain, providing complete transparency and an immutable payment record. Our platform features bank-grade security protocols to protect your financial information and cryptocurrency assets.
+                </p>
+              </div>
+              <div className="mb-9">
+                <h3 className="mb-4 text-xl font-bold text-black dark:text-white sm:text-2xl lg:text-xl xl:text-2xl">
+                  Real-time Payment Verification
+                </h3>
+                <p className="text-base font-medium leading-relaxed text-body-color sm:text-lg sm:leading-relaxed">
+                  Transactions are verified in seconds, not days. Our advanced confirmation system monitors the blockchain in real-time, allowing educational institutions to instantly confirm payment receipt and update student records accordingly.
                 </p>
               </div>
               <div className="mb-1">
                 <h3 className="mb-4 text-xl font-bold text-black dark:text-white sm:text-2xl lg:text-xl xl:text-2xl">
-                  Await Verification
+                  Global Accessibility
                 </h3>
                 <p className="text-base font-medium leading-relaxed text-body-color sm:text-lg sm:leading-relaxed">
-                  In less than 15secs your payment will be verified and executed
+                  EduPay breaks down geographical barriers to education payments. International students can pay tuition without expensive wire transfers or currency conversion fees, making education more accessible globally.
                 </p>
               </div>
             </div>

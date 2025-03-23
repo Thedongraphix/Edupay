@@ -1,0 +1,118 @@
+"use client"
+
+import * as React from "react"
+import { Pie, PieChart, ResponsiveContainer, Sector } from "recharts"
+
+const data = [
+  { name: "Tuition", value: 1200, fill: "hsl(221.2 83.2% 53.3%)" },
+  { name: "Housing", value: 800, fill: "hsl(212 95% 68%)" },
+  { name: "Books", value: 250, fill: "hsl(216 92% 60%)" },
+  { name: "Activities", value: 180, fill: "hsl(210 98% 78%)" },
+  { name: "Other", value: 120, fill: "hsl(212 97% 87%)" },
+]
+
+// Active shape render function with enhanced styling
+const renderActiveShape = (props: any) => {
+  const {
+    cx,
+    cy,
+    innerRadius,
+    outerRadius,
+    startAngle,
+    endAngle,
+    fill,
+    payload,
+    percent,
+    value
+  } = props
+
+  return (
+    <g>
+      <text x={cx} y={cy} dy={-20} textAnchor="middle" fill="currentColor" className="text-base font-medium">
+        {payload.name}
+      </text>
+      <text x={cx} y={cy} dy={8} textAnchor="middle" fill="currentColor" className="text-2xl font-bold">
+        ${value}
+      </text>
+      <text x={cx} y={cy} dy={30} textAnchor="middle" fill="currentColor" className="text-xs text-muted-foreground">
+        {`${(percent * 100).toFixed(1)}%`}
+      </text>
+      <Sector
+        cx={cx}
+        cy={cy}
+        innerRadius={innerRadius}
+        outerRadius={outerRadius + 8}
+        startAngle={startAngle}
+        endAngle={endAngle}
+        fill={fill}
+      />
+      <Sector
+        cx={cx}
+        cy={cy}
+        startAngle={startAngle}
+        endAngle={endAngle}
+        innerRadius={outerRadius + 10}
+        outerRadius={outerRadius + 14}
+        fill={fill}
+      />
+    </g>
+  )
+}
+
+export function PieChartComponent() {
+  const [activeIndex, setActiveIndex] = React.useState(0)
+  
+  // Calculate total for display in the center when no segment is active
+  const total = React.useMemo(() => {
+    return data.reduce((sum, entry) => sum + entry.value, 0)
+  }, [])
+  
+  const formatCurrency = (value: number) => {
+    return new Intl.NumberFormat('en-US', {
+      style: 'currency',
+      currency: 'USD',
+      maximumFractionDigits: 0,
+    }).format(value)
+  }
+
+  const onPieEnter = (_: any, index: number) => {
+    setActiveIndex(index)
+  }
+
+  return (
+    <div className="relative h-[350px] w-full">
+      <ResponsiveContainer width="100%" height="100%">
+        <PieChart>
+          <Pie
+            activeIndex={activeIndex}
+            activeShape={renderActiveShape}
+            data={data}
+            cx="50%"
+            cy="50%"
+            innerRadius={80}
+            outerRadius={110}
+            dataKey="value"
+            onMouseEnter={onPieEnter}
+          />
+        </PieChart>
+      </ResponsiveContainer>
+      
+      {/* Legend */}
+      <div className="absolute bottom-0 left-0 right-0 flex flex-wrap justify-center gap-4 pb-2">
+        {data.map((entry, index) => (
+          <div 
+            key={`legend-${index}`} 
+            className="flex items-center gap-2"
+            onMouseEnter={() => setActiveIndex(index)}
+          >
+            <div
+              className="h-3 w-3 rounded-full"
+              style={{ backgroundColor: entry.fill }}
+            />
+            <span className="text-xs font-medium">{entry.name}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  )
+} 

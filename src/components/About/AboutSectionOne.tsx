@@ -24,8 +24,8 @@ const AboutSectionOne = () => {
           <div className="-mx-4 flex flex-wrap items-center">
             <div className="w-full px-4 lg:w-1/2">
               <SectionTitle
-                title="Revolutionising crypto payments for education"
-                paragraph="Edupay is a platform that allows users to pay for education using cryptocurrencies. It is a platform that is built on the Ethereum blockchain and uses the ERC-20 standard."
+                title="Transforming Education Payments Through Blockchain"
+                paragraph="EduPay is a pioneering platform that bridges the gap between educational institutions and cryptocurrency payments. We enable schools, colleges, and universities to securely accept and manage tuition payments in various cryptocurrencies while providing students and parents with a simplified payment experience."
                 mb="44px"
               />
 
@@ -35,17 +35,18 @@ const AboutSectionOne = () => {
               >
                 <div className="mx-[-12px] flex flex-wrap">
                   <div className="w-full px-3 sm:w-1/2 lg:w-full xl:w-1/2">
-                    <List text="Secure and transparent" />
-                    <List text="Multi-wallet support" />
-                    <List text="Use for lifetime" />
+                    <List text="Lower transaction fees than traditional methods" />
+                    <List text="Secure blockchain-based payments" />
+                    <List text="Real-time cryptocurrency price updates" />
+                    <List text="Support for BTC, ETH, USDC, ADA & more" />
                   </div>
 
-                  {/*<div className="w-full px-3 sm:w-1/2 lg:w-full xl:w-1/2">
-                    <List text="Use for lifetime" />
-                    <List text="Secure and transparent" />
-                    <List text="Multi-wallet support" />
+                  <div className="w-full px-3 sm:w-1/2 lg:w-full xl:w-1/2">
+                    <List text="Instant payment verification" />
+                    <List text="Compatible with multiple wallets" />
+                    <List text="Automatic USD conversion options" />
+                    <List text="Detailed transaction reporting" />
                   </div>
-                  */}
                 </div>
               </div>
             </div>
@@ -54,13 +55,13 @@ const AboutSectionOne = () => {
               <div className="relative mx-auto aspect-[25/24] max-w-[500px] lg:mr-0">
                 <Image
                   src="/images/about/about-image.svg"
-                  alt="about-image"
+                  alt="EduPay blockchain education payments"
                   fill
                   className="mx-auto max-w-full drop-shadow-three dark:hidden dark:drop-shadow-none lg:mr-0"
                 />
                 <Image
                   src="/images/about/about-image-dark.svg"
-                  alt="about-image"
+                  alt="EduPay blockchain education payments"
                   fill
                   className="mx-auto hidden max-w-full drop-shadow-three dark:block dark:drop-shadow-none lg:mr-0"
                 />
