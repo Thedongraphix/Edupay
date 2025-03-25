@@ -9,7 +9,8 @@ import {
   YAxis, 
   Tooltip,
   CartesianGrid,
-  Legend
+  Legend,
+  TooltipProps
 } from "recharts"
 
 // Data for stablecoin payments over time
@@ -58,8 +59,18 @@ const chartData = [
   },
 ]
 
+interface PayloadItem {
+  name: string;
+  value: number;
+  color: string;
+}
+
 // Custom tooltip to show currency formatting
-const CustomTooltip = ({ active, payload, label }) => {
+const CustomTooltip = ({ 
+  active, 
+  payload, 
+  label 
+}: TooltipProps<number, string> & { payload?: PayloadItem[] }) => {
   if (active && payload && payload.length) {
     return (
       <div className="rounded-lg border border-gray-200 bg-white p-4 shadow-sm dark:border-gray-700 dark:bg-gray-800">
@@ -122,7 +133,7 @@ export function ModernTuitionChart() {
               axisLine={{ stroke: '#4B5563', opacity: 0.3 }} 
               tickFormatter={(value) => `$${value}`}
             />
-            <Tooltip content={<CustomTooltip />} />
+            <Tooltip content={(props) => <CustomTooltip {...props} />} />
             <Legend 
               wrapperStyle={{ paddingTop: 15 }}
               formatter={(value) => <span className="text-gray-900 dark:text-white font-medium">{value}</span>}

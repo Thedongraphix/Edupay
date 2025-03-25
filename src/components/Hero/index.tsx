@@ -32,12 +32,7 @@ const Hero = () => {
                   >
                     Get Started for Free
                   </Link>
-                  <Link
-                    href="/wallet"
-                    className="rounded-md bg-white py-4 px-8 text-base font-semibold text-black duration-300 ease-in-out hover:bg-opacity-90 dark:bg-dark-2 dark:text-white dark:hover:bg-opacity-90"
-                  >
-                    Connect Wallet
-                  </Link>
+                  
                 </div>
               </div>
             </div>
