@@ -224,7 +224,7 @@ export function ChartActiveShape({
         cy={cy}
         startAngle={startAngle}
         endAngle={endAngle}
-        innerRadius={outerRadius + 6}
+        innerRadius={outerRadius + 6} 
         outerRadius={outerRadius + 10}
         fill={itemColor}
       />

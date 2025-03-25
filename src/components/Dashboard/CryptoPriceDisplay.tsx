@@ -15,40 +15,40 @@ interface CryptoPrice {
 // Initial state with loading values
 const initialPrices: CryptoPrice[] = [
   {
-    id: "bitcoin",
-    name: "Bitcoin",
-    symbol: "BTC",
-    price: 0,
-    change: 0,
-    color: "#F7931A",
-    icon: <span className="text-white font-bold">₿</span>,
-  },
-  {
-    id: "ethereum",
-    name: "Ethereum",
-    symbol: "ETH",
-    price: 0,
-    change: 0,
-    color: "#627EEA",
-    icon: <span className="text-white font-bold">Ξ</span>,
-  },
-  {
-    id: "cardano",
-    name: "Cardano",
-    symbol: "ADA",
-    price: 0,
-    change: 0,
-    color: "#0033AD",
-    icon: <span className="text-white font-bold">A</span>,
-  },
-  {
-    id: "usd-coin",
+    id: "usdc",
     name: "USD Coin",
     symbol: "USDC",
     price: 0,
     change: 0,
     color: "#2775CA",
     icon: <span className="text-white font-bold">$</span>,
+  },
+  {
+    id: "tether",
+    name: "Tether",
+    symbol: "USDT",
+    price: 0,
+    change: 0,
+    color: "#26A17B",
+    icon: <span className="text-white font-bold">₮</span>,
+  },
+  {
+    id: "dai",
+    name: "Dai",
+    symbol: "DAI",
+    price: 0,
+    change: 0,
+    color: "#F5AC37",
+    icon: <span className="text-white font-bold">◈</span>,
+  },
+  {
+    id: "binance-usd",
+    name: "Binance USD",
+    symbol: "BUSD",
+    price: 0,
+    change: 0,
+    color: "#F0B90B",
+    icon: <span className="text-white font-bold">₿</span>,
   },
 ]
 
@@ -64,43 +64,43 @@ export function CryptoPriceDisplay() {
       setIsUpdating(true)
       
       // In a real application, this would be fetched from an API
-      // Mock data for demonstration purposes
+      // Mock data for stablecoins - prices very close to $1 with minimal fluctuation
       const prices = [
         {
-          id: 'bitcoin',
-          name: 'Bitcoin',
-          symbol: 'BTC',
-          price: 29345.32,
-          change: 2.5,
-          color: '#F7931A',
-          icon: <span className="text-white font-bold">₿</span>
-        },
-        {
-          id: 'ethereum',
-          name: 'Ethereum',
-          symbol: 'ETH',
-          price: 1842.55,
-          change: -0.8,
-          color: '#627EEA',
-          icon: <span className="text-white font-bold">Ξ</span>
-        },
-        {
-          id: 'cardano',
-          name: 'Cardano',
-          symbol: 'ADA',
-          price: 0.48,
-          change: 1.2,
-          color: '#0033AD',
-          icon: <span className="text-white font-bold">A</span>
-        },
-        {
-          id: 'usd-coin',
+          id: 'usdc',
           name: 'USD Coin',
           symbol: 'USDC',
-          price: 1.00,
+          price: 1.0001,
           change: 0.01,
           color: '#2775CA',
           icon: <span className="text-white font-bold">$</span>
+        },
+        {
+          id: 'tether',
+          name: 'Tether',
+          symbol: 'USDT',
+          price: 1.0008,
+          change: 0.02,
+          color: '#26A17B',
+          icon: <span className="text-white font-bold">₮</span>
+        },
+        {
+          id: 'dai',
+          name: 'Dai',
+          symbol: 'DAI',
+          price: 0.9998,
+          change: -0.03,
+          color: '#F5AC37',
+          icon: <span className="text-white font-bold">◈</span>
+        },
+        {
+          id: 'binance-usd',
+          name: 'Binance USD',
+          symbol: 'BUSD',
+          price: 1.0002,
+          change: 0.01,
+          color: '#F0B90B',
+          icon: <span className="text-white font-bold">₿</span>
         }
       ]
       
@@ -113,7 +113,7 @@ export function CryptoPriceDisplay() {
       setError(null)
     } catch (err) {
       setLoading(false)
-      setError("Failed to load cryptocurrency data. Please try again later.")
+      setError("Failed to load stablecoin data. Please try again later.")
     } finally {
       setIsUpdating(false)
     }
@@ -135,72 +135,52 @@ export function CryptoPriceDisplay() {
     return new Intl.NumberFormat('en-US', {
       style: 'currency',
       currency: 'USD',
-      minimumFractionDigits: value >= 1 ? 2 : 3,
-      maximumFractionDigits: value >= 1 ? 2 : 4,
+      minimumFractionDigits: value >= 1 ? 4 : 4,  // Show 4 decimal places for stablecoins
+      maximumFractionDigits: value >= 1 ? 4 : 6,
     }).format(value)
   }
 
   const formatTime = (date: Date) => {
-    return date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
+    return new Intl.DateTimeFormat('en-US', {
+      hour: 'numeric',
+      minute: 'numeric',
+      second: 'numeric',
+      hour12: true
+    }).format(date)
   }
 
   return (
-    <div className="rounded-lg bg-white p-4 shadow-sm dark:bg-[#1D2144] overflow-hidden transition-all hover:shadow-card">
-      <div className="flex items-center mb-4">
-        <h3 className="text-xl font-bold text-black dark:text-white flex items-center">
-          <svg 
-            className="w-5 h-5 mr-2" 
-            viewBox="0 0 24 24" 
-            fill="none" 
-            xmlns="http://www.w3.org/2000/svg"
+    <div className="w-full">
+      <div className="mb-4 flex flex-col justify-between gap-2 sm:flex-row sm:items-center">
+        <h2 className="text-xl font-semibold text-black dark:text-white">Stablecoin Prices</h2>
+        <div className="flex items-center text-sm text-gray-500 dark:text-gray-400">
+          <span className="mr-2">Last updated: {formatTime(lastUpdated)}</span>
+          <button
+            onClick={() => fetchCryptoPrices()}
+            disabled={isUpdating}
+            className="rounded-full p-1 transition-colors hover:bg-gray-100 dark:hover:bg-gray-800 disabled:cursor-not-allowed disabled:opacity-50"
           >
-            <path 
-              d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" 
-              stroke="currentColor" 
-              strokeWidth="1.5" 
-              strokeLinecap="round" 
-              strokeLinejoin="round"
-            />
-            <path 
-              d="M12 6V12L16 14" 
-              stroke="currentColor" 
-              strokeWidth="1.5" 
-              strokeLinecap="round" 
-              strokeLinejoin="round"
-            />
-          </svg>
-          Live Market Prices
-        </h3>
-        <div className="ml-3 px-2 py-1 bg-green-100 dark:bg-green-900/30 rounded text-xs font-medium text-green-600 dark:text-green-300 flex items-center">
-          {isUpdating ? (
-            <>
-              <div className="w-2 h-2 rounded-full bg-green-600 dark:bg-green-300 mr-1 animate-pulse"></div>
-              Updating
-            </>
-          ) : (
-            <>
-              <div className="w-2 h-2 rounded-full bg-green-600 dark:bg-green-300 mr-1"></div>
-              Live
-            </>
-          )}
-        </div>
-        <div className="ml-auto text-sm text-body-color dark:text-body-color-dark">
-          Last updated: {formatTime(lastUpdated)}
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className={`h-4 w-4 ${isUpdating ? 'animate-spin' : ''}`}
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"
+              />
+            </svg>
+          </button>
         </div>
       </div>
-      
+
       {error ? (
-        <div className="py-6 text-center text-red-500 dark:text-red-400">
-          <svg className="w-10 h-10 mx-auto mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-          </svg>
-          <p>{error}</p>
-          <button 
-            onClick={fetchCryptoPrices}
-            className="mt-4 px-4 py-2 bg-primary text-white rounded-md hover:bg-primary/90 transition-colors"
-          >
-            Try Again
-          </button>
+        <div className="rounded-md bg-red-50 p-4 text-red-500 dark:bg-red-900/20 dark:text-red-400">
+          {error}
         </div>
       ) : (
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
@@ -211,20 +191,16 @@ export function CryptoPriceDisplay() {
                 loading ? 'animate-pulse' : ''
               } hover:shadow-sm`}
             >
-              <div 
-                className="w-10 h-10 rounded-full flex items-center justify-center" 
-                style={{ backgroundColor: crypto.color }}
-              >
+              <div className="flex h-10 w-10 items-center justify-center rounded-full" 
+                style={{backgroundColor: crypto.color}}>
                 {crypto.icon}
               </div>
               <div>
                 <div className="flex items-center">
-                  <div className="font-medium">{crypto.name}</div>
-                  <div className="ml-1 text-xs text-gray-500 dark:text-gray-400">
-                    {crypto.symbol}
-                  </div>
+                  <span className="font-medium text-gray-900 dark:text-white">{crypto.symbol}</span>
+                  <span className="ml-1 text-xs text-gray-500 dark:text-gray-400">{crypto.name}</span>
                 </div>
-                <div className="text-lg font-bold">
+                <div className="text-lg font-bold text-black dark:text-white">
                   {loading ? (
                     <div className="h-6 w-20 bg-gray-200 dark:bg-gray-700 rounded animate-pulse"></div>
                   ) : (
@@ -244,19 +220,15 @@ export function CryptoPriceDisplay() {
                 {!loading && (
                   <div className="flex items-center">
                     {crypto.change > 0 ? (
-                      <svg className="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                        <path fillRule="evenodd" d="M5.293 9.707a1 1 0 010-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 01-1.414 1.414L11 7.414V15a1 1 0 11-2 0V7.414L6.707 9.707a1 1 0 01-1.414 0z" clipRule="evenodd" />
+                      <svg className="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 15l7-7 7 7" />
                       </svg>
                     ) : crypto.change < 0 ? (
-                      <svg className="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                        <path fillRule="evenodd" d="M14.707 10.293a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 111.414-1.414L9 12.586V5a1 1 0 012 0v7.586l2.293-2.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                      <svg className="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                       </svg>
-                    ) : (
-                      <svg className="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                        <path fillRule="evenodd" d="M3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clipRule="evenodd" />
-                      </svg>
-                    )}
-                    {crypto.change > 0 ? '+' : ''}{crypto.change.toFixed(2)}%
+                    ) : null}
+                    {Math.abs(crypto.change).toFixed(2)}%
                   </div>
                 )}
               </div>
@@ -264,21 +236,6 @@ export function CryptoPriceDisplay() {
           ))}
         </div>
       )}
-      
-      <div className="mt-4 pt-3 border-t border-gray-100 dark:border-gray-700 flex justify-end items-center text-xs text-gray-500 dark:text-gray-400">
-        <button 
-          onClick={fetchCryptoPrices}
-          className="text-primary hover:underline flex items-center"
-          disabled={isUpdating}
-        >
-          {isUpdating ? 'Updating...' : 'Refresh'}
-          {!isUpdating && (
-            <svg className="w-3 h-3 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path>
-            </svg>
-          )}
-        </button>
-      </div>
     </div>
   )
 } 

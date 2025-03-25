@@ -25,8 +25,8 @@ const AboutSectionOne = () => {
           <div className="-mx-4 flex flex-wrap items-center">
             <div className="w-full px-4 lg:w-1/2">
               <SectionTitle
-                title="Empowering Education with Blockchain Technology"
-                paragraph="Edupay bridges traditional finance and Web3 to create a more efficient, secure payment ecosystem for educational institutions worldwide. Our platform eliminates payment barriers while providing enhanced security and transparency."
+                title="Why Stablecoins for Education Payments"
+                paragraph="Stablecoins combine the stability of traditional currency with the efficiency of blockchain technology, creating the ideal payment solution for educational institutions worldwide. Our platform enables frictionless dollar-pegged transactions with complete transparency."
                 mb="44px"
               />
 
@@ -36,11 +36,11 @@ const AboutSectionOne = () => {
               >
                 <div className="mx-[-12px] flex flex-wrap">
                   <div className="w-full px-3">
-                    <List text="Reduced processing fees by up to 80% compared to traditional payment methods" />
-                    <List text="Enhanced security with blockchain verification and multi-signature protection" />
-                    <List text="Global accessibility for international student payments without currency conversion fees" />
-                    <List text="Real-time settlement and instant payment confirmation" />
-                    <List text="Simplified compliance and automated reconciliation processes" />
+                    <List text="USDC, USDT, and DAI transactions cost pennies regardless of payment amount" />
+                    <List text="Zero currency volatility with 1:1 USD-pegged stablecoins" />
+                    <List text="Near-instant global settlements 24/7/365 without banking delays" />
+                    <List text="Compliance-ready with transparent blockchain audit trails" />
+                    <List text="Seamless conversion to fiat currency when needed" />
                   </div>
                 </div>
               </div>
@@ -52,7 +52,7 @@ const AboutSectionOne = () => {
                   src="/images/about/about-image.svg"
                   alt="about-image"
                   fill
-                  className="mx-auto max-w-full lg:mr-0"
+                  className="mx-auto max-w-full lg:mr-0 dark:drop-shadow-[0_0_15px_rgba(255,255,255,0.1)]"
                 />
               </div>
             </div>

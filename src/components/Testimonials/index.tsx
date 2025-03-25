@@ -7,7 +7,7 @@ const testimonialData = [
     name: "Dr. Sarah Johnson",
     designation: "Finance Director, Westlake University",
     content:
-      "Edupay has transformed how we handle tuition payments. The reduction in processing fees alone has saved our institution over $50,000 annually, allowing us to reinvest in student programs.",
+      "Switching to USDC stablecoin payments has transformed our international student program. We've eliminated currency conversion fees and reduced payment processing time from days to minutes, saving over $75,000 annually.",
     star: 5,
     image: "/images/testimonials/auth-01.png",
   },
@@ -16,7 +16,7 @@ const testimonialData = [
     name: "Michael Chen",
     designation: "CTO, Global Education Partners",
     content:
-      "The security features of Edupay give us peace of mind. Blockchain verification means we can track every payment instantly, and our international students love the simplified process for cross-border payments.",
+      "The stability of USDC and USDT payments gives us confidence without the volatility concerns of other cryptocurrencies. Edupay's stablecoin integration provides the perfect balance of blockchain efficiency with dollar stability.",
     star: 5,
     image: "/images/testimonials/auth-02.png",
   },
@@ -25,7 +25,7 @@ const testimonialData = [
     name: "Emma Rodriguez",
     designation: "Bursar, Lakeside College",
     content:
-      "Implementation was surprisingly simple. The Edupay team provided exceptional support, and our students adapted quickly. We've seen a 40% decrease in payment delays since switching to this system.",
+      "Our international students love paying tuition with stablecoins. They save hundreds on wire transfer fees, and payments settle instantly even on weekends. The USDC payment option has become our most requested payment method.",
     star: 5,
     image: "/images/testimonials/auth-03.png",
   },

@@ -12,7 +12,7 @@ const PricingBox = (props: {
 
   return (
     <div className="w-full">
-      <div className={`relative z-10 rounded-sm ${featured ? 'bg-primary/[0.03] dark:bg-primary/[0.08] border-2 border-primary' : 'bg-white dark:bg-gray-dark'} px-8 py-10 shadow-three hover:shadow-one dark:shadow-two dark:hover:shadow-gray-dark`}>
+      <div className={`relative z-10 rounded-md ${featured ? 'bg-primary/[0.03] dark:bg-primary/[0.08] border-2 border-primary' : 'bg-white dark:bg-gray-dark'} px-8 py-10 shadow-md hover:shadow-lg dark:shadow-gray-900/30 dark:hover:shadow-gray-900/50 transition-all duration-300`}>
         {featured && (
           <span className="absolute -top-5 left-1/2 transform -translate-x-1/2 bg-primary text-white text-xs font-medium px-3 py-1 rounded-full">
             Recommended
@@ -24,9 +24,9 @@ const PricingBox = (props: {
               <span className="amount">{price}</span>
             ) : (
               <>
-                $<span className="amount">{price}</span>
+                <span className="text-lg mr-1">USDC</span><span className="amount">{price}</span>
                 {duration && (
-                  <span className="time text-lg font-medium text-body-color">
+                  <span className="time text-lg font-medium text-body-color dark:text-gray-400">
                     /{duration}
                   </span>
                 )}
@@ -37,13 +37,13 @@ const PricingBox = (props: {
             {packageName}
           </h4>
         </div>
-        <p className="mb-7 text-base text-body-color">{subtitle}</p>
+        <p className="mb-7 text-base text-body-color dark:text-gray-400">{subtitle}</p>
         <div className="mb-8 border-b border-body-color border-opacity-10 pb-8 dark:border-white dark:border-opacity-10">
-          <button className={`flex w-full items-center justify-center rounded-sm ${featured ? 'bg-primary' : 'bg-primary'} p-3 text-base font-semibold text-white transition duration-300 ease-in-out hover:bg-opacity-80 hover:shadow-signUp`}>
-            {isCustomPricing ? "Contact Us" : "Get Started"}
+          <button className={`flex w-full items-center justify-center rounded-md ${featured ? 'bg-primary' : 'bg-primary'} p-3 text-base font-semibold text-white transition duration-300 ease-in-out hover:bg-opacity-90 hover:shadow-lg focus:ring-2 focus:ring-primary/50 dark:focus:ring-primary/70`}>
+            {isCustomPricing ? "Contact Us" : "Pay with Stablecoins"}
           </button>
         </div>
-        <div>{children}</div>
+        <div className="dark:text-gray-300">{children}</div>
         <div className="absolute right-0 top-0 z-[-1]">
           <svg
             width="179"
@@ -87,6 +87,26 @@ const PricingBox = (props: {
               </linearGradient>
             </defs>
           </svg>
+        </div>
+        
+        {/* Stablecoin accepted badges */}
+        <div className="mt-6 flex flex-wrap items-center justify-center gap-2 border-t border-gray-100 pt-6 dark:border-gray-800">
+          <div className="flex items-center rounded-full bg-gray-50 px-2 py-1 dark:bg-gray-800">
+            <span className="mr-1 h-5 w-5 rounded-full bg-[#2775CA]"></span>
+            <span className="text-xs font-medium dark:text-white">USDC</span>
+          </div>
+          <div className="flex items-center rounded-full bg-gray-50 px-2 py-1 dark:bg-gray-800">
+            <span className="mr-1 h-5 w-5 rounded-full bg-[#26A17B]"></span>
+            <span className="text-xs font-medium dark:text-white">USDT</span>
+          </div>
+          <div className="flex items-center rounded-full bg-gray-50 px-2 py-1 dark:bg-gray-800">
+            <span className="mr-1 h-5 w-5 rounded-full bg-[#F5AC37]"></span>
+            <span className="text-xs font-medium dark:text-white">DAI</span>
+          </div>
+          <div className="flex items-center rounded-full bg-gray-50 px-2 py-1 dark:bg-gray-800">
+            <span className="mr-1 h-5 w-5 rounded-full bg-[#F0B90B]"></span>
+            <span className="text-xs font-medium dark:text-white">BUSD</span>
+          </div>
         </div>
       </div>
     </div>

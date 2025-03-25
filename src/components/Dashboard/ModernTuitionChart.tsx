@@ -1,6 +1,6 @@
 "use client"
 
-import * as React from "react"
+import React from "react"
 import { 
   Line, 
   LineChart, 
@@ -12,76 +12,77 @@ import {
   Legend
 } from "recharts"
 
-// Data for the tuition breakdown over time
+// Data for stablecoin payments over time
 const chartData = [
   {
-    month: "Jan",
-    coreTuition: 950,
-    technologyFee: 125,
-    libraryFee: 50,
-    registrationFee: 38,
-    studentServices: 30,
+    name: "Jan",
+    USDC: 4200,
+    USDT: 3150,
+    DAI: 800,
+    BUSD: 350,
   },
   {
-    month: "Feb",
-    coreTuition: 970,
-    technologyFee: 130,
-    libraryFee: 55,
-    registrationFee: 40,
-    studentServices: 32,
+    name: "Feb",
+    USDC: 4800,
+    USDT: 3400,
+    DAI: 920,
+    BUSD: 380,
   },
   {
-    month: "Mar",
-    coreTuition: 1050,
-    technologyFee: 145,
-    libraryFee: 70,
-    registrationFee: 48,
-    studentServices: 36,
+    name: "Mar",
+    USDC: 5600,
+    USDT: 3700,
+    DAI: 1050,
+    BUSD: 450,
   },
   {
-    month: "Apr",
-    coreTuition: 1100,
-    technologyFee: 170,
-    libraryFee: 85,
-    registrationFee: 58,
-    studentServices: 42,
+    name: "Apr",
+    USDC: 6200,
+    USDT: 4100,
+    DAI: 1200,
+    BUSD: 520,
   },
   {
-    month: "May",
-    coreTuition: 1200,
-    technologyFee: 250,
-    libraryFee: 120,
-    registrationFee: 90,
-    studentServices: 60,
+    name: "May",
+    USDC: 7800,
+    USDT: 4300,
+    DAI: 1350,
+    BUSD: 580,
   },
   {
-    month: "Jun",
-    coreTuition: 1300,
-    technologyFee: 280,
-    libraryFee: 140,
-    registrationFee: 100,
-    studentServices: 70,
+    name: "Jun",
+    USDC: 8500,
+    USDT: 4800,
+    DAI: 1500,
+    BUSD: 650,
   },
 ]
 
-// Custom tooltip to show values in currency format
-const CustomTooltip = ({ active, payload, label }: any) => {
+// Custom tooltip to show currency formatting
+const CustomTooltip = ({ active, payload, label }) => {
   if (active && payload && payload.length) {
     return (
-      <div className="rounded-lg border border-gray-100 bg-white p-3 shadow-md dark:border-gray-800 dark:bg-gray-900">
-        <p className="mb-2 font-medium">{label}</p>
-        {payload.map((entry: any, index: number) => (
-          <div key={`item-${index}`} className="flex items-center gap-2">
-            <div
-              className="h-3 w-3 rounded-full"
+      <div className="rounded-lg border border-gray-200 bg-white p-4 shadow-sm dark:border-gray-700 dark:bg-gray-800">
+        <p className="mb-2 font-medium text-gray-900 dark:text-gray-100">{label}</p>
+        {payload.map((entry, index) => (
+          <div key={`item-${index}`} className="flex items-center py-1">
+            <div 
+              className="mr-2 h-3 w-3 rounded-full" 
               style={{ backgroundColor: entry.color }}
-            ></div>
-            <p className="text-sm">
-              <span className="font-medium">{entry.name}: </span>
-              <span>${entry.value}</span>
+            />
+            <p className="text-sm flex justify-between w-full">
+              <span className="font-medium" style={{ color: entry.color }}>
+                {entry.name}:
+              </span>
+              <span className="ml-2 text-gray-900 dark:text-gray-100">
+                ${entry.value.toLocaleString()}
+              </span>
             </p>
           </div>
         ))}
+        <p className="mt-2 border-t border-gray-200 pt-2 text-xs text-gray-500 dark:border-gray-700 dark:text-gray-400">
+          Stablecoin payments for {label}
+        </p>
       </div>
     )
   }
@@ -90,82 +91,73 @@ const CustomTooltip = ({ active, payload, label }: any) => {
 
 export function ModernTuitionChart() {
   return (
-    <div className="w-full">
-      <div className="mb-6">
-        <h2 className="text-2xl font-bold text-black dark:text-white">Tuition Analysis</h2>
-        <p className="text-sm text-gray-500 dark:text-gray-400">Monthly breakdown of tuition components</p>
-      </div>
+    <div className="mb-5 text-center">
+      <h3 className="mb-2 text-lg font-bold text-gray-900 dark:text-white">
+        Stablecoin Payment Volume
+      </h3>
+      <p className="mb-6 text-sm text-gray-500 dark:text-gray-400">
+        Distribution of payments by stablecoin type over time
+      </p>
       <div className="h-[380px] w-full">
         <ResponsiveContainer width="100%" height="100%">
           <LineChart
             data={chartData}
             margin={{
-              top: 20,
+              top: 10,
               right: 30,
-              left: 0,
-              bottom: 0,
+              left: 20,
+              bottom: 5,
             }}
           >
-            <CartesianGrid strokeDasharray="3 3" opacity={0.1} vertical={false} />
+            <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#374151" opacity={0.15} />
             <XAxis 
-              dataKey="month"
-              tick={{ fontSize: 12 }}
-              tickLine={false}
-              axisLine={false}
+              dataKey="name" 
+              stroke="#9CA3AF"
+              tick={{ fill: '#9CA3AF' }}
+              axisLine={{ stroke: '#4B5563', opacity: 0.3 }}
             />
             <YAxis 
+              stroke="#9CA3AF"
+              tick={{ fill: '#9CA3AF' }}
+              axisLine={{ stroke: '#4B5563', opacity: 0.3 }} 
               tickFormatter={(value) => `$${value}`}
-              tick={{ fontSize: 12 }}
-              tickLine={false}
-              axisLine={false}
-              width={60}
             />
             <Tooltip content={<CustomTooltip />} />
-            <Legend iconType="circle" iconSize={8} />
-            <Line
-              type="monotone"
-              dataKey="coreTuition"
-              stroke="hsl(221.2 83.2% 53.3%)"
-              strokeWidth={3}
-              dot={{ r: 4 }}
-              activeDot={{ r: 6, strokeWidth: 0 }}
-              name="Core Tuition"
+            <Legend 
+              wrapperStyle={{ paddingTop: 15 }}
+              formatter={(value) => <span className="text-gray-900 dark:text-white font-medium">{value}</span>}
             />
             <Line
               type="monotone"
-              dataKey="technologyFee"
-              stroke="hsl(212 95% 68%)"
+              dataKey="USDC"
+              stroke="#2775CA"
               strokeWidth={3}
-              dot={{ r: 4 }}
-              activeDot={{ r: 6, strokeWidth: 0 }}
-              name="Technology Fee"
+              dot={{ stroke: '#2775CA', strokeWidth: 2, r: 4, fill: 'white' }}
+              activeDot={{ r: 8, fill: '#2775CA', opacity: 0.8 }}
             />
             <Line
               type="monotone"
-              dataKey="libraryFee"
-              stroke="hsl(216 92% 60%)"
+              dataKey="USDT"
+              stroke="#26A17B"
               strokeWidth={3}
-              dot={{ r: 4 }}
-              activeDot={{ r: 6, strokeWidth: 0 }}
-              name="Library Fee"
+              dot={{ stroke: '#26A17B', strokeWidth: 2, r: 4, fill: 'white' }}
+              activeDot={{ r: 8, fill: '#26A17B', opacity: 0.8 }}
             />
             <Line
               type="monotone"
-              dataKey="registrationFee"
-              stroke="hsl(210 98% 78%)"
+              dataKey="DAI"
+              stroke="#F5AC37"
               strokeWidth={3}
-              dot={{ r: 4 }}
-              activeDot={{ r: 6, strokeWidth: 0 }}
-              name="Registration Fee"
+              dot={{ stroke: '#F5AC37', strokeWidth: 2, r: 4, fill: 'white' }}
+              activeDot={{ r: 8, fill: '#F5AC37', opacity: 0.8 }}
             />
             <Line
               type="monotone"
-              dataKey="studentServices"
-              stroke="hsl(212 97% 87%)"
+              dataKey="BUSD"
+              stroke="#F0B90B"
               strokeWidth={3}
-              dot={{ r: 4 }}
-              activeDot={{ r: 6, strokeWidth: 0 }}
-              name="Student Services"
+              dot={{ stroke: '#F0B90B', strokeWidth: 2, r: 4, fill: 'white' }}
+              activeDot={{ r: 8, fill: '#F0B90B', opacity: 0.8 }}
             />
           </LineChart>
         </ResponsiveContainer>

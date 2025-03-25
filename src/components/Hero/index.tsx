@@ -18,10 +18,10 @@ const Hero = () => {
                 data-wow-delay=".2s"
               >
                 <h1 className="mb-5 text-3xl font-bold leading-tight text-black dark:text-white sm:text-4xl sm:leading-tight md:text-5xl md:leading-tight">
-                  Transform Your Institution&apos;s Financial Future
+                  Stablecoin Payments for Educational Institutions
                 </h1>
                 <p className="mb-12 text-base font-medium !leading-relaxed text-body-color dark:text-white dark:opacity-90 sm:text-lg md:text-xl">
-                  Edupay empowers educational institutions with blockchain-powered payment solutions that reduce costs by up to 70%, eliminate fraud, and provide instant global transactions for tuition and fees.
+                  Edupay enables educational institutions to accept USDC, USDT, DAI, and other leading stablecoins with zero volatility risk, 80% lower fees, and instant global settlements.
                 </p>
                 
                 

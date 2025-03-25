@@ -12,9 +12,9 @@ const featuresData: Feature[] = [
         <path d="M23.2222 0.222168H3.77778C2.67321 0.222168 1.77778 1.1176 1.77778 2.22217V38.2222C1.77778 39.3267 2.67321 40.2222 3.77778 40.2222H23.2222C24.3268 40.2222 25.2222 39.3267 25.2222 38.2222V2.22217C25.2222 1.1176 24.3268 0.222168 23.2222 0.222168ZM15.4444 36.2222C14.3399 36.2222 13.4444 35.3267 13.4444 34.2222C13.4444 33.1176 14.3399 32.2222 15.4444 32.2222C16.549 32.2222 17.4444 33.1176 17.4444 34.2222C17.4444 35.3267 16.549 36.2222 15.4444 36.2222Z"></path>
       </svg>
     ),
-    title: "Cross-Platform Support",
+    title: "USD-Pegged Stability",
     paragraph:
-      "Access your education payment dashboard from any device. Our responsive platform works seamlessly across desktop, mobile, and tablet devices.",
+      "Accept USDC, USDT, DAI, and other stablecoins that maintain 1:1 parity with the US dollar, eliminating volatility risks while leveraging blockchain efficiency.",
   },
   {
     id: 2,
@@ -27,9 +27,9 @@ const featuresData: Feature[] = [
         <path d="M19.4082 27.9124C19.7603 28.1584 20.2393 28.1584 20.5914 27.9124L36.2759 17.3593C36.6663 17.0947 36.6663 16.9947 36.6663 17.3593V6.35931C36.6663 5.82357 36.4358 5.31605 35.9914 5.00605L20.5914 -5.49688C20.2394 -5.74299 19.7603 -5.74299 19.4082 -5.49688L4.0082 5.00605C3.56369 5.31605 3.33326 5.82357 3.33326 6.35931V17.3593C3.33326 17.7239 3.33326 17.8239 3.72366 17.5593L19.4082 6.9562C19.7603 6.7101 20.2393 6.7101 20.5914 6.9562L36.2759 17.5593C36.6663 17.8239 36.6663 17.7239 36.6663 17.3593C36.6663 16.9947 36.6663 17.0947 36.2759 17.3593L20.5914 27.9124Z"></path>
       </svg>
     ),
-    title: "Low Transaction Fees",
+    title: "Drastically Lower Fees",
     paragraph:
-      "Save up to 80% on payment processing fees compared to traditional banking systems. Our blockchain technology reduces costs while maintaining high security standards.",
+      "Process tuition payments with USDC for as little as $0.50 per transaction regardless of amount, compared to 2-3% with credit cards. Save thousands on international payments with no intermediary banks.",
   },
   {
     id: 3,
@@ -42,9 +42,9 @@ const featuresData: Feature[] = [
         <path d="M26.6667 0.333328H13.3333C6.33333 0.333328 0.666664 6.00001 0.666664 12.9999V13.0001C0.666664 14.2667 1.41667 15.3333 2.5 15.7666C2.98333 15.9666 3.5 16.0666 4 16.0666C5.83333 16.0666 7.33333 14.5666 7.33333 12.7333V12.7331C7.33333 9.78324 9.71667 7.39993 12.6667 7.39993H27.3333C30.2833 7.39993 32.6667 9.78324 32.6667 12.7331V12.7333C32.6667 14.5666 34.1667 16.0666 36 16.0666C36.5 16.0666 37.0167 15.9666 37.5 15.7666C38.5833 15.3333 39.3333 14.2667 39.3333 13.0001V12.9999C39.3333 6.00001 33.6667 0.333328 26.6667 0.333328Z"></path>
       </svg>
     ),
-    title: "Instant Settlement",
+    title: "24/7 Settlement",
     paragraph:
-      "Education payments are processed within seconds instead of days. Forget about waiting for bank transfers or clearing checks - crypto payments are confirmed almost instantly.",
+      "Stablecoin transactions settle in minutes at any time of day, any day of the year. No more waiting for banking hours or dealing with weekend/holiday delays for critical tuition payments.",
   },
   {
     id: 4,
@@ -71,9 +71,9 @@ const featuresData: Feature[] = [
         <path d="M3.44439 20.4443C2.49828 20.4443 1.88883 21.4874 1.88883 22.5006C1.88883 23.5139 2.49828 24.5556 3.44439 24.5556H6.44439C7.39051 24.5556 7.99996 23.5125 7.99996 22.4993C7.99996 21.486 7.39051 20.4443 6.44439 20.4443H3.44439Z"></path>
       </svg>
     ),
-    title: "Transparent Transactions",
+    title: "Complete Transparency",
     paragraph:
-      "All payment records are stored on the blockchain, providing complete transparency and auditability for both students and institutions. Track payments in real-time with detailed records.",
+      "Every stablecoin transaction is recorded on the blockchain with immutable proof of payment. Gain perfect audit trails and simplify reconciliation for your finance department.",
   },
   {
     id: 5,
@@ -98,9 +98,9 @@ const featuresData: Feature[] = [
         <path d="M20 -6.16136e-06C25.5 -6.16136e-06 30 4.5 30 10C30 15.5 25.5 20 20 20C14.5 20 10 15.5 10 10C10 4.5 14.5 -6.16136e-06 20 -6.16136e-06Z"></path>
       </svg>
     ),
-    title: "Multiple Cryptocurrencies",
+    title: "Multiple Stablecoin Support",
     paragraph:
-      "Pay with your preferred cryptocurrency. Edupay supports Bitcoin, Ethereum, USDC, and other popular cryptocurrencies to give you maximum flexibility for your education payments.",
+      "Accept payments in USDC (USD Coin), USDT (Tether), DAI, BUSD, and other major stablecoins across multiple blockchains including Ethereum, Solana, and Polygon for maximum flexibility.",
   },
   {
     id: 6,
@@ -113,9 +113,9 @@ const featuresData: Feature[] = [
         <path d="M30.8154 0.428394L21.3153 13.4832C21.3153 13.4832 14.8582 16.4604 11.3612 18.0504L18.1184 38.2804L30.8154 32.4133L36.4941 8.9226C37.5023 3.64818 33.5829 -1.27153 30.8154 0.428394Z"></path>
       </svg>
     ),
-    title: "Institutional Integration",
+    title: "Easy Currency Conversion",
     paragraph:
-      "Edupay seamlessly integrates with existing school management systems, allowing educational institutions to easily adopt cryptocurrency payments without disrupting their current workflows.",
+      "Automatically convert received stablecoins to traditional currency with our banking partners if desired, or hold them in your institution's digital wallet for future disbursements and payments.",
   },
 ];
 

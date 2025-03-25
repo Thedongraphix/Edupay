@@ -12,8 +12,8 @@ const Pricing = () => {
     <section id="pricing" className="relative z-10 py-16 md:py-20 lg:py-28">
       <div className="container">
         <SectionTitle
-          title="Simple, Transparent Pricing for Educational Institutions"
-          paragraph="Choose the plan that fits your institution's size and needs. All plans include our core blockchain payment infrastructure with no hidden fees or currency conversion charges."
+          title="Simple, Transparent Pricing for Stablecoin Payments"
+          paragraph="Choose the plan that fits your institution's size and needs. All plans include our core stablecoin payment infrastructure with zero volatility risk and dramatically lower fees."
           center
           width="665px"
         />
@@ -56,12 +56,12 @@ const Pricing = () => {
             packageName="Basic"
             price={isMonthly ? "49" : "499"}
             duration={isMonthly ? "mo" : "yr"}
-            subtitle="Perfect for small schools and institutions just starting with crypto payments."
+            subtitle="Perfect for small schools and institutions just starting with stablecoin payments."
           >
-            <OfferList text="Support for BTC & ETH" />
+            <OfferList text="Major Stablecoin Support (USDC, USDT)" />
             <OfferList text="Dashboard Access" />
             <OfferList text="Payment Analytics" />
-            <OfferList text="Real-time Price Updates" />
+            <OfferList text="Real-time Settlement" />
             <OfferList text="Email Support" />
             <OfferList text="Basic Security Features" />
           </PricingBox>
@@ -69,11 +69,11 @@ const Pricing = () => {
             packageName="Standard"
             price={isMonthly ? "99" : "999"}
             duration={isMonthly ? "mo" : "yr"}
-            subtitle="Ideal for established educational institutions seeking comprehensive payment solutions."
+            subtitle="Ideal for established educational institutions seeking comprehensive stablecoin payment solutions."
             featured
           >
             <OfferList text="All in Basic +" />
-            <OfferList text="Support for 10+ Cryptocurrencies" />
+            <OfferList text="All Major Stablecoins (USDC, USDT, DAI, BUSD)" />
             <OfferList text="Student Payment Portal" />
             <OfferList text="Advanced Analytics" />
             <OfferList text="Priority Support" />
@@ -84,10 +84,10 @@ const Pricing = () => {
             packageName="Enterprise"
             price="Custom"
             duration=""
-            subtitle="Tailored solutions for large universities and educational networks with specific needs."
+            subtitle="Tailored stablecoin payment solutions for large universities and educational networks with specific needs."
           >
             <OfferList text="All in Standard +" />
-            <OfferList text="Custom Cryptocurrency Support" />
+            <OfferList text="Multi-chain Stablecoin Support" />
             <OfferList text="Advanced API Integration" />
             <OfferList text="Dedicated Account Manager" />
             <OfferList text="Custom Reporting" />
@@ -99,7 +99,7 @@ const Pricing = () => {
         
         <div className="mt-12 flex flex-wrap items-center justify-center space-x-4 text-center">
           <p className="mb-4 text-base text-body-color dark:text-body-color-dark">
-            <span className="font-semibold text-black dark:text-white">All plans include:</span> No setup fees, 24/7 blockchain transaction monitoring, and automatic payment reconciliation
+            <span className="font-semibold text-black dark:text-white">All plans include:</span> No setup fees, 1:1 USD-pegged stability, and automatic payment reconciliation
           </p>
          
         </div>
