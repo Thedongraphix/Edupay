@@ -66,7 +66,7 @@ const Hero = () => {
       >
         <div className="container">
           <div className="-mx-4 flex flex-wrap items-center">
-            <div className="w-full px-4 lg:w-1/2">
+            <div className="w-full px-4 lg:w-1/2 order-2 lg:order-1">
               <div
                 className="wow fadeInUp mx-auto max-w-[800px]"
                 data-wow-delay=".2s"
@@ -90,8 +90,8 @@ const Hero = () => {
                 </div>
               </div>
             </div>
-            <div className="w-full px-4 lg:w-1/2">
-              <div className="wow fadeInUp relative mx-auto lg:mr-0 mt-12 lg:mt-0" data-wow-delay=".3s">
+            <div className="w-full px-4 lg:w-1/2 order-1 lg:order-2 mb-8 lg:mb-0">
+              <div className="wow fadeInUp relative mx-auto lg:mr-0 mt-0 lg:mt-0" data-wow-delay=".3s">
                 <Image
                   src="/images/hero/hero-image.jpg"
                   alt="hero image"
