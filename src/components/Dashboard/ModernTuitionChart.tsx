@@ -12,6 +12,7 @@ import {
   Legend,
   TooltipProps
 } from "recharts"
+import { ValueType, NameType } from "recharts/types/component/DefaultTooltipContent"
 
 // Data for stablecoin payments over time
 const chartData = [
@@ -70,12 +71,12 @@ const CustomTooltip = ({
   active, 
   payload, 
   label 
-}: TooltipProps<number, string> & { payload?: PayloadItem[] }) => {
+}: TooltipProps<ValueType, NameType>) => {
   if (active && payload && payload.length) {
     return (
       <div className="rounded-lg border border-gray-200 bg-white p-4 shadow-sm dark:border-gray-700 dark:bg-gray-800">
         <p className="mb-2 font-medium text-gray-900 dark:text-gray-100">{label}</p>
-        {payload.map((entry, index) => (
+        {payload.map((entry: any, index: number) => (
           <div key={`item-${index}`} className="flex items-center py-1">
             <div 
               className="mr-2 h-3 w-3 rounded-full" 

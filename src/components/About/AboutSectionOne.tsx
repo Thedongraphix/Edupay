@@ -38,9 +38,7 @@ const AboutSectionOne = () => {
                   <div className="w-full px-3">
                     <List text="USDC, USDT, and DAI transactions cost pennies regardless of payment amount" />
                     <List text="Zero currency volatility with 1:1 USD-pegged stablecoins" />
-                    <List text="Near-instant global settlements 24/7/365 without banking delays" />
-                    <List text="Compliance-ready with transparent blockchain audit trails" />
-                    <List text="Seamless conversion to fiat currency when needed" />
+                   
                   </div>
                 </div>
               </div>

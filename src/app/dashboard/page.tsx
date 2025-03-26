@@ -42,11 +42,7 @@ export default function DashboardPage() {
 
       <section className="pt-[80px] pb-[80px]">
         <div className="container">
-          <SectionTitle
-            title="Dashboard"
-            paragraph="View your payment stats and transaction history"
-            mb="40px"
-          />
+         
 
           {/* Dashboard stats */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-10">

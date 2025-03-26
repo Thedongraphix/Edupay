@@ -46,77 +46,8 @@ const featuresData: Feature[] = [
     paragraph:
       "Stablecoin transactions settle in minutes at any time of day, any day of the year. No more waiting for banking hours or dealing with weekend/holiday delays for critical tuition payments.",
   },
-  {
-    id: 4,
-    icon: (
-      <svg width="40" height="41" viewBox="0 0 40 41" className="fill-current">
-        <path
-          opacity="0.5"
-          d="M39.5556 30.9554V35.5222C39.5556 37.7555 39.5556 39.8888 35.2222 39.8888H30.6556"
-        ></path>
-        <path
-          opacity="0.5"
-          d="M0.444397 30.9554V35.5222C0.444397 37.7555 0.444397 39.8888 4.77773 39.8888H9.34439"
-        ></path>
-        <path
-          opacity="0.5"
-          d="M39.5556 10.0444V5.47773C39.5556 3.24439 39.5556 1.11107 35.2222 1.11107H30.6556"
-        ></path>
-        <path
-          opacity="0.5"
-          d="M0.444397 10.0444V5.47773C0.444397 3.24439 0.444397 1.11107 4.77773 1.11107H9.34439"
-        ></path>
-        <path d="M22 9.71112C22 8.60656 20.9558 7.99996 20 7.99996C19.0442 7.99996 18 8.60656 18 9.71112V32.2887C18 33.3933 19.0442 33.9999 20 33.9999C20.9558 33.9999 22 33.3933 22 32.2887V9.71112Z"></path>
-        <path d="M33.5554 20.4443C32.6093 20.4443 31.9998 21.4874 31.9998 22.5006C31.9998 23.5139 32.6093 24.5556 33.5554 24.5556H36.5554C37.5015 24.5556 38.111 23.5125 38.111 22.4993C38.111 21.486 37.5015 20.4443 36.5554 20.4443H33.5554Z"></path>
-        <path d="M3.44439 20.4443C2.49828 20.4443 1.88883 21.4874 1.88883 22.5006C1.88883 23.5139 2.49828 24.5556 3.44439 24.5556H6.44439C7.39051 24.5556 7.99996 23.5125 7.99996 22.4993C7.99996 21.486 7.39051 20.4443 6.44439 20.4443H3.44439Z"></path>
-      </svg>
-    ),
-    title: "Complete Transparency",
-    paragraph:
-      "Every stablecoin transaction is recorded on the blockchain with immutable proof of payment. Gain perfect audit trails and simplify reconciliation for your finance department.",
-  },
-  {
-    id: 5,
-    icon: (
-      <svg width="40" height="40" viewBox="0 0 40 40" className="fill-current">
-        <path
-          opacity="0.5"
-          d="M20 30C22.75 30 25 32.25 25 35C25 37.75 22.75 40 20 40C17.25 40 15 37.75 15 35C15 32.25 17.25 30 20 30Z"
-        ></path>
-        <path
-          opacity="0.5"
-          d="M30 20C32.75 20 35 22.25 35 25C35 27.75 32.75 30 30 30C27.25 30 25 27.75 25 25C25 22.25 27.25 20 30 20Z"
-        ></path>
-        <path
-          opacity="0.5"
-          d="M20 10C22.75 10 25 12.25 25 15C25 17.75 22.75 20 20 20C17.25 20 15 17.75 15 15C15 12.25 17.25 10 20 10Z"
-        ></path>
-        <path
-          opacity="0.5"
-          d="M10 20C12.75 20 15 22.25 15 25C15 27.75 12.75 30 10 30C7.25 30 5 27.75 5 25C5 22.25 7.25 20 10 20Z"
-        ></path>
-        <path d="M20 -6.16136e-06C25.5 -6.16136e-06 30 4.5 30 10C30 15.5 25.5 20 20 20C14.5 20 10 15.5 10 10C10 4.5 14.5 -6.16136e-06 20 -6.16136e-06Z"></path>
-      </svg>
-    ),
-    title: "Multiple Stablecoin Support",
-    paragraph:
-      "Accept payments in USDC (USD Coin), USDT (Tether), DAI, BUSD, and other major stablecoins across multiple blockchains including Ethereum, Solana, and Polygon for maximum flexibility.",
-  },
-  {
-    id: 6,
-    icon: (
-      <svg width="40" height="40" viewBox="0 0 40 40" className="fill-current">
-        <path
-          opacity="0.5"
-          d="M18.1184 38.2803C13.1976 36.7865 9.3387 32.9276 7.84503 28.0069L7.01496 25.1732C6.11676 21.1218 7.30982 19.9287 11.3612 18.0505C14.8582 16.4605 21.3153 13.4834 21.3153 13.4834L28.2374 32.1483L18.1184 38.2803Z"
-        ></path>
-        <path d="M30.8154 0.428394L21.3153 13.4832C21.3153 13.4832 14.8582 16.4604 11.3612 18.0504L18.1184 38.2804L30.8154 32.4133L36.4941 8.9226C37.5023 3.64818 33.5829 -1.27153 30.8154 0.428394Z"></path>
-      </svg>
-    ),
-    title: "Easy Currency Conversion",
-    paragraph:
-      "Automatically convert received stablecoins to traditional currency with our banking partners if desired, or hold them in your institution's digital wallet for future disbursements and payments.",
-  },
+ 
+ 
 ];
 
 export default featuresData;
