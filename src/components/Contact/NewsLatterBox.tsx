@@ -1,9 +1,69 @@
 "use client";
-import Image from "next/image";
+
 import { useState } from "react";
 
 const NewsLatterBox = () => {
   const [agreement, setAgreement] = useState(false);
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+  });
+  const [loading, setLoading] = useState(false);
+  const [success, setSuccess] = useState(false);
+  const [error, setError] = useState("");
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    
+    if (!agreement) {
+      setError("Please agree to the terms before submitting");
+      return;
+    }
+    
+    if (!formData.name || !formData.email) {
+      setError("Please fill in all required fields");
+      return;
+    }
+    
+    setLoading(true);
+    setError("");
+    
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          access_key: "1d4c77c2-8e46-4d1f-80c7-c9730212fa70", // Replace with your actual key
+          name: formData.name,
+          email: formData.email,
+          subject: "New EduPay Newsletter Subscription",
+          message: `New subscription request from ${formData.name} (${formData.email})`,
+          from_name: "EduPay Landing Page",
+        }),
+      });
+      
+      const data = await response.json();
+      
+      if (data.success) {
+        setSuccess(true);
+        setFormData({ name: "", email: "" });
+        setAgreement(false);
+      } else {
+        setError("Something went wrong. Please try again.");
+      }
+    } catch (err) {
+      setError("Server error. Please try again later.");
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return (
     <div
@@ -16,37 +76,54 @@ const NewsLatterBox = () => {
       <p className="mb-11 border-b border-body-color border-opacity-25 pb-11 text-base font-medium leading-relaxed text-body-color dark:border-white dark:border-opacity-25">
         Subscribe to our newsletter for the latest updates on cryptocurrency payment solutions, regulatory changes in education finance, and exclusive resources for educational institutions.
       </p>
-      <form>
-        <input
-          type="text"
-          name="name"
-          placeholder="Enter your name"
-          className="mb-4 w-full rounded-md border border-body-color border-opacity-10 py-3 px-6 text-base font-medium text-body-color placeholder-body-color outline-none focus:border-primary focus:border-opacity-100 focus-visible:shadow-none dark:border-white dark:border-opacity-10 dark:bg-[#242B51] focus:dark:border-opacity-50"
-        />
-        <input
-          type="email"
-          name="email"
-          placeholder="Enter your email"
-          className="mb-4 w-full rounded-md border border-body-color border-opacity-10 py-3 px-6 text-base font-medium text-body-color placeholder-body-color outline-none focus:border-primary focus:border-opacity-100 focus-visible:shadow-none dark:border-white dark:border-opacity-10 dark:bg-[#242B51] focus:dark:border-opacity-50"
-        />
-        <div className="my-1">
-          <label className="mx-4">
-            <input
-              type="checkbox"
-              className="mx-2"
-              checked={agreement}
-              onChange={(e) => setAgreement(e.target.checked)}
-            />
-            I&apos;ve read and agree to the terms
-          </label>
+      {success ? (
+        <div className="text-center p-5 bg-green-50 dark:bg-green-900/30 rounded-md">
+          <p className="text-green-600 dark:text-green-400 font-medium">Thanks for subscribing! We'll be in touch soon.</p>
         </div>
-        <button className="duration-80 mb-4 w-full cursor-pointer rounded-md border border-transparent bg-primary py-3 px-6 text-center text-base font-medium text-white outline-none transition ease-in-out hover:bg-opacity-80 hover:shadow-signUp focus-visible:shadow-none">
-          Subscribe Now
-        </button>
-        <p className="text-center text-base font-medium leading-relaxed text-body-color">
-          No spam guaranteed, So please don't send any spam mail.
-        </p>
-      </form>
+      ) : (
+        <form onSubmit={handleSubmit}>
+          <input
+            type="text"
+            name="name"
+            placeholder="Enter your name"
+            value={formData.name}
+            onChange={handleInputChange}
+            className="mb-4 w-full rounded-md border border-body-color border-opacity-10 py-3 px-6 text-base font-medium text-body-color placeholder-body-color outline-none focus:border-primary focus:border-opacity-100 focus-visible:shadow-none dark:border-white dark:border-opacity-10 dark:bg-[#242B51] focus:dark:border-opacity-50"
+          />
+          <input
+            type="email"
+            name="email"
+            placeholder="Enter your email"
+            value={formData.email}
+            onChange={handleInputChange}
+            className="mb-4 w-full rounded-md border border-body-color border-opacity-10 py-3 px-6 text-base font-medium text-body-color placeholder-body-color outline-none focus:border-primary focus:border-opacity-100 focus-visible:shadow-none dark:border-white dark:border-opacity-10 dark:bg-[#242B51] focus:dark:border-opacity-50"
+          />
+          <div className="my-1">
+            <label className="mx-4">
+              <input
+                type="checkbox"
+                className="mx-2"
+                checked={agreement}
+                onChange={(e) => setAgreement(e.target.checked)}
+              />
+              I&apos;ve read and agree to the terms
+            </label>
+          </div>
+          {error && (
+            <p className="text-red-500 text-sm mb-4">{error}</p>
+          )}
+          <button 
+            type="submit" 
+            disabled={loading}
+            className="duration-80 mb-4 w-full cursor-pointer rounded-md border border-transparent bg-primary py-3 px-6 text-center text-base font-medium text-white outline-none transition ease-in-out hover:bg-opacity-80 hover:shadow-signUp focus-visible:shadow-none disabled:opacity-70"
+          >
+            {loading ? "Sending..." : "Subscribe Now"}
+          </button>
+          <p className="text-center text-base font-medium leading-relaxed text-body-color">
+            No spam guaranteed, So please don't send any spam mail.
+          </p>
+        </form>
+      )}
       <div className="absolute top-0 left-0 z-[-1]">
         <svg
           width="370"
