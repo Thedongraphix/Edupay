@@ -7,6 +7,7 @@ const NewsLatterBox = () => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
+    institution_type: ""
   });
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
@@ -25,7 +26,7 @@ const NewsLatterBox = () => {
       return;
     }
     
-    if (!formData.name || !formData.email) {
+    if (!formData.name || !formData.email || !formData.institution_type) {
       setError("Please fill in all required fields");
       return;
     }
@@ -40,12 +41,13 @@ const NewsLatterBox = () => {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          access_key: "1d4c77c2-8e46-4d1f-80c7-c9730212fa70", // Replace with your actual key
+          access_key: "1d4c77c2-8e46-4d1f-80c7-c9730212fa70",
           name: formData.name,
           email: formData.email,
-          subject: "New EduPay Newsletter Subscription",
-          message: `New subscription request from ${formData.name} (${formData.email})`,
-          from_name: "EduPay Landing Page",
+          institution_type: formData.institution_type,
+          subject: "New Stablecoin Education Newsletter Subscription",
+          message: `New subscription request from ${formData.name} (${formData.email})\nInstitution Type: ${formData.institution_type}`,
+          from_name: "EduPay Stablecoin Updates",
         }),
       });
       
@@ -53,7 +55,7 @@ const NewsLatterBox = () => {
       
       if (data.success) {
         setSuccess(true);
-        setFormData({ name: "", email: "" });
+        setFormData({ name: "", email: "", institution_type: "" });
         setAgreement(false);
       } else {
         setError("Something went wrong. Please try again.");
@@ -71,21 +73,21 @@ const NewsLatterBox = () => {
       data-wow-delay=".2s"
     >
       <h3 className="mb-4 text-2xl font-bold leading-tight text-black dark:text-white">
-        Stay Updated on EdTech Payment Innovations
+        Stay Updated on Stablecoin Solutions for Education
       </h3>
       <p className="mb-11 border-b border-body-color border-opacity-25 pb-11 text-base font-medium leading-relaxed text-body-color dark:border-white dark:border-opacity-25">
-        Subscribe to our newsletter for the latest updates on cryptocurrency payment solutions, regulatory changes in education finance, and exclusive resources for educational institutions.
+        Get exclusive insights on stablecoin payment solutions, compliance updates for educational institutions, and best practices for implementing digital payments in your organization.
       </p>
       {success ? (
         <div className="text-center p-5 bg-green-50 dark:bg-green-900/30 rounded-md">
-          <p className="text-green-600 dark:text-green-400 font-medium">Thanks for subscribing! We'll be in touch soon.</p>
+          <p className="text-green-600 dark:text-green-400 font-medium">Welcome to the EduPay community! You'll receive our next update soon.</p>
         </div>
       ) : (
         <form onSubmit={handleSubmit}>
           <input
             type="text"
             name="name"
-            placeholder="Enter your name"
+            placeholder="Enter your full name"
             value={formData.name}
             onChange={handleInputChange}
             className="mb-4 w-full rounded-md border border-body-color border-opacity-10 py-3 px-6 text-base font-medium text-body-color placeholder-body-color outline-none focus:border-primary focus:border-opacity-100 focus-visible:shadow-none dark:border-white dark:border-opacity-10 dark:bg-[#242B51] focus:dark:border-opacity-50"
@@ -93,11 +95,24 @@ const NewsLatterBox = () => {
           <input
             type="email"
             name="email"
-            placeholder="Enter your email"
+            placeholder="Enter your institutional email"
             value={formData.email}
             onChange={handleInputChange}
             className="mb-4 w-full rounded-md border border-body-color border-opacity-10 py-3 px-6 text-base font-medium text-body-color placeholder-body-color outline-none focus:border-primary focus:border-opacity-100 focus-visible:shadow-none dark:border-white dark:border-opacity-10 dark:bg-[#242B51] focus:dark:border-opacity-50"
           />
+          <select
+            name="institution_type"
+            value={formData.institution_type}
+            onChange={handleInputChange}
+            className="mb-4 w-full rounded-md border border-body-color border-opacity-10 py-3 px-6 text-base font-medium text-body-color placeholder-body-color outline-none focus:border-primary focus:border-opacity-100 focus-visible:shadow-none dark:border-white dark:border-opacity-10 dark:bg-[#242B51] focus:dark:border-opacity-50"
+          >
+            <option value="">Select Institution Type</option>
+            <option value="university">University</option>
+            <option value="college">College</option>
+            <option value="school">School</option>
+            <option value="training_center">Training Center</option>
+            <option value="other">Other Educational Institution</option>
+          </select>
           <div className="my-1">
             <label className="mx-4">
               <input
@@ -106,7 +121,7 @@ const NewsLatterBox = () => {
                 checked={agreement}
                 onChange={(e) => setAgreement(e.target.checked)}
               />
-              I&apos;ve read and agree to the terms
+              I agree to receive updates about stablecoin payment solutions
             </label>
           </div>
           {error && (
@@ -117,10 +132,10 @@ const NewsLatterBox = () => {
             disabled={loading}
             className="duration-80 mb-4 w-full cursor-pointer rounded-md border border-transparent bg-primary py-3 px-6 text-center text-base font-medium text-white outline-none transition ease-in-out hover:bg-opacity-80 hover:shadow-signUp focus-visible:shadow-none disabled:opacity-70"
           >
-            {loading ? "Sending..." : "Subscribe Now"}
+            {loading ? "Subscribing..." : "Join Our Network"}
           </button>
           <p className="text-center text-base font-medium leading-relaxed text-body-color">
-            No spam guaranteed, So please don't send any spam mail.
+            Receive curated content about stablecoin innovations in education
           </p>
         </form>
       )}

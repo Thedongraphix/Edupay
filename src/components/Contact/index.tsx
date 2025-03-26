@@ -7,7 +7,8 @@ const Contact = () => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
-    message: ""
+    message: "",
+    institution: ""
   });
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
@@ -22,7 +23,7 @@ const Contact = () => {
     e.preventDefault();
     console.log("Form submission started");
     
-    if (!formData.name || !formData.email || !formData.message) {
+    if (!formData.name || !formData.email || !formData.message || !formData.institution) {
       setError("Please fill in all required fields");
       return;
     }
@@ -42,9 +43,10 @@ const Contact = () => {
           access_key: "1d4c77c2-8e46-4d1f-80c7-c9730212fa70",
           name: formData.name,
           email: formData.email,
-          subject: "New Support Ticket from EduPay Website",
-          message: formData.message,
-          from_name: "EduPay Support System",
+          institution: formData.institution,
+          subject: "New Educational Institution Inquiry - EduPay Stablecoin Solutions",
+          message: `Institution: ${formData.institution}\n\nMessage: ${formData.message}`,
+          from_name: "EduPay Stablecoin Payment System",
           botcheck: ""
         }),
       });
@@ -54,7 +56,7 @@ const Contact = () => {
       
       if (data.success) {
         setSuccess(true);
-        setFormData({ name: "", email: "", message: "" });
+        setFormData({ name: "", email: "", message: "", institution: "" });
       } else {
         console.error("Form submission failed:", data);
         setError("Something went wrong. Please try again.");
@@ -75,20 +77,19 @@ const Contact = () => {
             <div className="w-full px-4 lg:w-7/12 xl:w-8/12">
               <div
                 className="wow fadeInUp mb-12 rounded-md bg-primary/[.03] py-11 px-8 dark:bg-dark sm:p-[55px] lg:mb-5 lg:px-8 xl:p-[55px]"
-                data-wow-delay=".15s
-              "
+                data-wow-delay=".15s"
               >
                 <h2 className="mb-3 text-2xl font-bold text-black dark:text-white sm:text-3xl lg:text-2xl xl:text-3xl">
-                  Need Help? Get in Touch
+                  Transform Your Institution's Payment System with Stablecoins
                 </h2>
                 <p className="mb-12 text-base font-medium text-body-color">
-                  Our support team is here to answer your questions about financial technology solutions for educational institutions.
+                  Ready to modernize your educational institution's financial operations? Our stablecoin payment solutions offer secure, efficient, and cost-effective transactions for schools, universities, and educational organizations.
                 </p>
                 
                 {success ? (
                   <div className="text-center p-8 bg-green-50 dark:bg-green-900/30 rounded-md">
-                    <h3 className="text-xl font-bold text-green-600 dark:text-green-400 mb-2">Thank You!</h3>
-                    <p className="text-green-600 dark:text-green-400">Your message has been received. Our team will get back to you shortly.</p>
+                    <h3 className="text-xl font-bold text-green-600 dark:text-green-400 mb-2">Thank You for Your Interest!</h3>
+                    <p className="text-green-600 dark:text-green-400">Our team will contact you shortly to discuss how our stablecoin payment solutions can benefit your institution.</p>
                   </div>
                 ) : (
                   <form onSubmit={handleSubmit}>
@@ -99,14 +100,14 @@ const Contact = () => {
                             htmlFor="name"
                             className="mb-3 block text-sm font-medium text-dark dark:text-white"
                           >
-                            Your Name
+                            Contact Person
                           </label>
                           <input
                             type="text"
                             name="name"
                             value={formData.name}
                             onChange={handleInputChange}
-                            placeholder="Enter your name"
+                            placeholder="Enter your full name"
                             className="w-full rounded-md border border-transparent py-3 px-6 text-base text-body-color placeholder-body-color shadow-one outline-none focus:border-primary focus-visible:shadow-none dark:bg-[#242B51] dark:shadow-signUp"
                           />
                         </div>
@@ -117,14 +118,32 @@ const Contact = () => {
                             htmlFor="email"
                             className="mb-3 block text-sm font-medium text-dark dark:text-white"
                           >
-                            Your Email
+                            Institutional Email
                           </label>
                           <input
                             type="email"
                             name="email"
                             value={formData.email}
                             onChange={handleInputChange}
-                            placeholder="Enter your email"
+                            placeholder="Enter your institutional email"
+                            className="w-full rounded-md border border-transparent py-3 px-6 text-base text-body-color placeholder-body-color shadow-one outline-none focus:border-primary focus-visible:shadow-none dark:bg-[#242B51] dark:shadow-signUp"
+                          />
+                        </div>
+                      </div>
+                      <div className="w-full px-4">
+                        <div className="mb-8">
+                          <label
+                            htmlFor="institution"
+                            className="mb-3 block text-sm font-medium text-dark dark:text-white"
+                          >
+                            Institution Name
+                          </label>
+                          <input
+                            type="text"
+                            name="institution"
+                            value={formData.institution}
+                            onChange={handleInputChange}
+                            placeholder="Enter your institution's name"
                             className="w-full rounded-md border border-transparent py-3 px-6 text-base text-body-color placeholder-body-color shadow-one outline-none focus:border-primary focus-visible:shadow-none dark:bg-[#242B51] dark:shadow-signUp"
                           />
                         </div>
@@ -135,14 +154,14 @@ const Contact = () => {
                             htmlFor="message"
                             className="mb-3 block text-sm font-medium text-dark dark:text-white"
                           >
-                            Your Message
+                            How can we help your institution?
                           </label>
                           <textarea
                             name="message"
                             rows={5}
                             value={formData.message}
                             onChange={handleInputChange}
-                            placeholder="Enter your Message"
+                            placeholder="Tell us about your institution's payment needs and challenges"
                             className="w-full resize-none rounded-md border border-transparent py-3 px-6 text-base text-body-color placeholder-body-color shadow-one outline-none focus:border-primary focus-visible:shadow-none dark:bg-[#242B51] dark:shadow-signUp"
                           ></textarea>
                         </div>
@@ -156,7 +175,7 @@ const Contact = () => {
                           disabled={loading}
                           className="rounded-md bg-primary py-4 px-9 text-base font-medium text-white transition duration-300 ease-in-out hover:bg-opacity-80 hover:shadow-signUp disabled:opacity-70"
                         >
-                          {loading ? "Sending..." : "Submit Ticket"}
+                          {loading ? "Sending..." : "Get Started with Stablecoin Payments"}
                         </button>
                       </div>
                     </div>

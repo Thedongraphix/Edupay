@@ -8,8 +8,8 @@ import Contact from "@/components/Contact";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Edupay - Cryptocurrency Payments for Education Institutions",
-  description: "Secure, instant, and low-fee cryptocurrency payment solution for schools, colleges, and universities. Simplify tuition payments, reduce costs, and improve transparency.",
+  title: "Edupay - Stablecoin Payments for Education Institutions",
+  description: "Secure, instant, and low-fee stablecoin payment solution for schools, colleges, and universities. Simplify tuition payments, reduce costs, and improve transparency.",
 };
 
 export default function Home() {
