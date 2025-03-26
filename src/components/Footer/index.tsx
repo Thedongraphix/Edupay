@@ -40,7 +40,7 @@ const Footer = () => {
                     </svg>
                   </a>
                   <a
-                    href="/"
+                    href="https://x.com/edupaydefi?t=iv_2Sh5zr9aUrnqoBpjyOQ&s=09"
                     aria-label="social-link"
                     target="_blank"
                     rel="noopener noreferrer"
