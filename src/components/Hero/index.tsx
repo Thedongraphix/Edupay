@@ -2,8 +2,62 @@
 
 import Link from "next/link";
 import Image from "next/image";
+import { useState, useEffect } from 'react';
 
 const Hero = () => {
+  const [text, setText] = useState('');
+  const [isDeleting, setIsDeleting] = useState(false);
+  const [loopNum, setLoopNum] = useState(0);
+  const [typingSpeed, setTypingSpeed] = useState(150);
+
+  const phrases = [
+    { prefix: 'Crypto for ', colored: 'Education' },
+    { prefix: 'Stablecoin ', colored: 'Payments' },
+    { prefix: 'Edupay for ', colored: 'Institutions' }
+  ];
+
+  useEffect(() => {
+    const handleTyping = () => {
+      const i = loopNum % phrases.length;
+      const fullText = phrases[i].prefix + phrases[i].colored;
+
+      setText(isDeleting 
+        ? fullText.substring(0, text.length - 1) 
+        : fullText.substring(0, text.length + 1)
+      );
+
+      setTypingSpeed(isDeleting ? 50 : 150);
+
+      if (!isDeleting && text === fullText) {
+        setTimeout(() => setIsDeleting(true), 2000);
+      } else if (isDeleting && text === '') {
+        setIsDeleting(false);
+        setLoopNum(loopNum + 1);
+      }
+    };
+
+    const timer = setTimeout(handleTyping, typingSpeed);
+    return () => clearTimeout(timer);
+  }, [text, isDeleting, loopNum, typingSpeed, phrases]);
+
+  const renderText = () => {
+    const currentPhrase = phrases[loopNum % phrases.length];
+    const { prefix, colored } = currentPhrase;
+    
+    if (text.length <= prefix.length) {
+      return text;
+    } else {
+      return (
+        <>
+          {prefix}
+          <span className="text-primary">
+            {text.substring(prefix.length)}
+          </span>
+        </>
+      );
+    }
+  };
+
   return (
     <>
       <section
@@ -18,12 +72,12 @@ const Hero = () => {
                 data-wow-delay=".2s"
               >
                 <h1 className="mb-5 text-3xl font-bold leading-tight text-black dark:text-white sm:text-4xl sm:leading-tight md:text-5xl md:leading-tight">
-                  Stablecoin Payments for Educational Institutions
+                  {renderText()}
+                  <span className="text-primary animate-pulse inline-block ml-1">|</span>
                 </h1>
                 <p className="mb-12 text-base font-medium !leading-relaxed text-body-color dark:text-white dark:opacity-90 sm:text-lg md:text-xl">
                   Edupay enables educational institutions to accept USDC, USDT, DAI, and other leading stablecoins with zero volatility risk, 80% lower fees, and instant global settlements.
                 </p>
-                
                 
                 <div className="flex flex-col items-center justify-center space-y-4 sm:flex-row sm:space-x-4 sm:space-y-0 lg:justify-start">
                   <Link
