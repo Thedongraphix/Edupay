@@ -13,8 +13,8 @@ const menuData = [
   },
   {
     id: 3,
-    title: "Payments",
-    path: "/payments",
+    title: "Payment",
+    path: "/payment",
     newTab: false,
   },
   {

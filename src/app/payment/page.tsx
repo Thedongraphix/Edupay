@@ -4,7 +4,7 @@ import Link from "next/link";
 import Breadcrumb from "@/components/Common/Breadcrumb";
 import { ArrowLeft, CreditCard, Info, Check, HelpCircle } from "lucide-react";
 
-export default function TuitionPaymentPage() {
+export default function PaymentPage() {
   return (
     <>
       <Breadcrumb
@@ -14,9 +14,9 @@ export default function TuitionPaymentPage() {
 
       <section className="py-12">
         <div className="container">
-          <Link href="/payments" className="inline-flex items-center text-sm font-medium text-gray-600 hover:text-primary dark:text-gray-400 dark:hover:text-primary mb-8">
+          <Link href="/" className="inline-flex items-center text-sm font-medium text-gray-600 hover:text-primary dark:text-gray-400 dark:hover:text-primary mb-8">
             <ArrowLeft size={16} className="mr-2" />
-            Back to Payments
+            Back to Homepage
           </Link>
           
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">

@@ -128,6 +128,18 @@ module.exports = {
           from: { transform: 'rotate(0deg)' },
           to: { transform: 'rotate(360deg)' }
         },
+        "float-slow": {
+          '0%, 100%': { transform: 'translateY(0)' },
+          '50%': { transform: 'translateY(-10px)' }
+        },
+        "float-medium": {
+          '0%, 100%': { transform: 'translateY(0)' },
+          '50%': { transform: 'translateY(-15px)' }
+        },
+        "float-fast": {
+          '0%, 100%': { transform: 'translateY(0)' },
+          '50%': { transform: 'translateY(-8px)' }
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -140,6 +152,9 @@ module.exports = {
         "bounce": "bounce 1s infinite",
         "ping": "ping 1s cubic-bezier(0, 0, 0.2, 1) infinite",
         "spin": "spin 1s linear infinite",
+        "float-slow": "float-slow 6s ease-in-out infinite",
+        "float-medium": "float-medium 5s ease-in-out infinite",
+        "float-fast": "float-fast 4s ease-in-out infinite",
       },
     },
   },

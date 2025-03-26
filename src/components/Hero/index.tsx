@@ -3,6 +3,8 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
+import { Shield, Wallet } from 'lucide-react';
 
 const Hero = () => {
   const [text, setText] = useState('');
@@ -26,7 +28,7 @@ const Hero = () => {
         : fullText.substring(0, text.length + 1)
       );
 
-      setTypingSpeed(isDeleting ? 50 : 150);
+      setTypingSpeed(isDeleting ? 50 : 200);
 
       if (!isDeleting && text === fullText) {
         setTimeout(() => setIsDeleting(true), 2000);
@@ -84,7 +86,7 @@ const Hero = () => {
                     href="/signup"
                     className="rounded-md bg-primary py-4 px-8 text-base font-semibold text-white duration-300 ease-in-out hover:bg-primary/80"
                   >
-                    Get Started for Free
+                    Get Started 
                   </Link>
                   
                 </div>
@@ -93,12 +95,109 @@ const Hero = () => {
             <div className="w-full px-4 lg:w-1/2 order-1 lg:order-2 mb-8 lg:mb-0">
               <div className="wow fadeInUp relative mx-auto lg:mr-0 mt-0 lg:mt-0" data-wow-delay=".3s">
                 <Image
-                  src="/images/hero/hero-image.jpg"
+                  src="/images/hero/hero-image2.jpg"
                   alt="hero image"
                   width={540}
                   height={540}
                   className="mx-auto max-w-full rounded-3xl drop-shadow-three lg:ml-auto"
                 />
+                
+                {/* Floating Shield Icon - Security */}
+                <motion.div
+                  initial={{ y: 20, opacity: 0 }}
+                  animate={{ y: 0, opacity: 1 }}
+                  transition={{
+                    delay: 0.5,
+                    duration: 0.5,
+                    y: {
+                      duration: 2,
+                      repeat: Infinity,
+                      repeatType: "reverse",
+                      ease: "easeInOut",
+                    },
+                  }}
+                  className="absolute top-[-20px] left-[10%] lg:left-[-20px]"
+                >
+                  <div className="bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm rounded-xl p-3 shadow-xl border border-gray-200 dark:border-gray-700 flex flex-col items-center hover:scale-105 transition-transform duration-300">
+                    <Shield className="h-8 w-8 text-primary" />
+                    <span className="text-xs font-medium text-gray-800 dark:text-gray-200 mt-1">Secure</span>
+                  </div>
+                </motion.div>
+                
+                {/* Floating Wallet Icon - Payments */}
+                <motion.div
+                  initial={{ y: -20, opacity: 0 }}
+                  animate={{ y: 0, opacity: 1 }}
+                  transition={{
+                    delay: 0.7,
+                    duration: 0.5,
+                    y: {
+                      duration: 2.5,
+                      repeat: Infinity,
+                      repeatType: "reverse",
+                      ease: "easeInOut",
+                    },
+                  }}
+                  className="absolute bottom-[10%] right-[5%] lg:right-[-10px]"
+                >
+                  <div className="bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm rounded-xl p-3 shadow-xl border border-gray-200 dark:border-gray-700 flex flex-col items-center hover:scale-105 transition-transform duration-300">
+                    <Wallet className="h-8 w-8 text-primary" />
+                    <span className="text-xs font-medium text-gray-800 dark:text-gray-200 mt-1">Instant Pay</span>
+                  </div>
+                </motion.div>
+                
+                {/* Floating Trust Icon */}
+                <motion.div
+                  initial={{ x: -20, opacity: 0 }}
+                  animate={{ x: 0, opacity: 1 }}
+                  transition={{
+                    delay: 0.9,
+                    duration: 0.5,
+                    y: {
+                      duration: 3,
+                      repeat: Infinity,
+                      repeatType: "reverse",
+                      ease: "easeInOut",
+                    },
+                  }}
+                  className="absolute bottom-[-15px] left-[15%]"
+                >
+                  <div className="bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm rounded-xl p-3 shadow-xl border border-gray-200 dark:border-gray-700 flex flex-col items-center hover:scale-105 transition-transform duration-300">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+                      <circle cx="9" cy="7" r="4" />
+                      <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
+                      <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                    </svg>
+                    <span className="text-xs font-medium text-gray-800 dark:text-gray-200 mt-1">Trusted</span>
+                  </div>
+                </motion.div>
+                
+                {/* Floating Global Icon */}
+                <motion.div
+                  initial={{ x: 20, opacity: 0 }}
+                  animate={{ x: 0, opacity: 1 }}
+                  transition={{
+                    delay: 1.1,
+                    duration: 0.5,
+                    y: {
+                      duration: 2.8,
+                      repeat: Infinity,
+                      repeatType: "reverse",
+                      ease: "easeInOut",
+                    },
+                  }}
+                  className="absolute top-[20%] right-[-10px] lg:right-[5%]"
+                >
+                  <div className="bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm rounded-xl p-3 shadow-xl border border-gray-200 dark:border-gray-700 flex flex-col items-center hover:scale-105 transition-transform duration-300">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <circle cx="12" cy="12" r="10" />
+                      <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+                      <path d="M2 12h20" />
+                    </svg>
+                    <span className="text-xs font-medium text-gray-800 dark:text-gray-200 mt-1">Global</span>
+                  </div>
+                </motion.div>
               </div>
             </div>
           </div>
