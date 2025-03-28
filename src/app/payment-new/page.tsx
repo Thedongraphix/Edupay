@@ -245,7 +245,7 @@ export default function PaymentPage() {
           <div className="mt-6 text-center">
             <div className="flex items-center justify-center text-xs text-gray-500 dark:text-gray-400">
               <ShieldCheck size={14} className="mr-1" />
-              Secured by Edupay blockchain technology
+              Secured by Edupay
             </div>
           </div>
         </div>
