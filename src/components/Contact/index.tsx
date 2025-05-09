@@ -175,7 +175,7 @@ const Contact = () => {
                           disabled={loading}
                           className="rounded-md bg-primary py-4 px-9 text-base font-medium text-white transition duration-300 ease-in-out hover:bg-opacity-80 hover:shadow-signUp disabled:opacity-70"
                         >
-                          {loading ? "Sending..." : "Get Started with Stablecoin Payments"}
+                          {loading ? "Sending..." : "Submit"}
                         </button>
                       </div>
                     </div>

@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@coinbase/onchainkit": "^0.38.5",
     "@privy-io/react-auth": "^1.40.3",
     "clsx": "^2.1.1",
     "framer-motion": "^12.6.0",
@@ -20,7 +21,9 @@
     "react-modal-video": "^2.0.1",
     "react-type-animation": "^3.2.0",
     "recharts": "^2.15.1",
-    "tailwind-merge": "^2.6.0"
+    "tailwind-merge": "^2.6.0",
+    "viem": "^2.26.2",
+    "wagmi": "^2.14.16"
   },
   "devDependencies": {
     "@types/node": "^20",

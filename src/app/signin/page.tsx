@@ -3,7 +3,9 @@
 import Link from "next/link";
 import { usePrivy } from '@privy-io/react-auth';
 import { useRouter } from 'next/navigation';
+import { Wallet } from '@coinbase/onchainkit/wallet';
 import React, { useEffect, useState } from 'react';
+
 
 const SigninPage = () => {
   const { login, authenticated, ready } = usePrivy();
@@ -50,6 +52,11 @@ const SigninPage = () => {
                     {isLoading ? "Signing in..." : "Sign in"}
                   </button>
                 </div>
+                
+                <div className="mb-6 mt-6">
+                  <Wallet />
+                </div>
+                
                 <p className="text-center text-base font-medium text-body-color">
                   Don&apos;t have an account?{" "}
                   <Link href="/signup" className="text-primary hover:underline">
