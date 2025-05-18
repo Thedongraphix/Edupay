@@ -1,11 +1,11 @@
 # **Edupay | Stablecoin Payments for Education**
-### *Built for the EDU Chain Hackathon*
+### *Built for the Base Batches Buildathon*
 
 <div align="center">
   <img src="https://i.imgur.com/WHpkFuJ.png" alt="Edupay Logo" width="120" height="120"/>
-  <p><em>Making educational payments easy with stablecoins on EDU Chain</em></p>
+  <p><em>Making educational payments easy with stablecoins on Base</em></p>
   
-  [![EDU Chain Testnet](https://img.shields.io/badge/EDU%20Chain-Testnet-blue)](https://edu-chain-testnet.blockscout.com/)
+  [![Base L2](https://img.shields.io/badge/Base-L2-blue)](https://base.org)
   [![Demo](https://img.shields.io/badge/Demo-Live-green)](https://edupaydefi.xyz)
 </div>
 
@@ -13,7 +13,7 @@
 
 ## 🚀 **What is Edupay?**
 
-Edupay is a payment platform that helps schools, colleges, and universities accept stablecoin payments. Built for the **EDU Chain Hackathon**, our solution runs on EDU Chain's testnet, making school payments faster, cheaper, and available to everyone.
+Edupay is a payment platform that helps schools, colleges, and universities accept stablecoin payments. Built for the **Base Batches Buildathon**, our solution runs on Base L2, making school payments faster, cheaper, and available to everyone.
 
 Stablecoins are digital currencies with steady value (like digital dollars), so schools don't have to worry about price swings that happen with other cryptocurrencies.
 
@@ -25,7 +25,7 @@ School payment systems today have many issues:
 
 | **Problem** | **How It Affects You** | **Our Solution** |
 |:------------|:------------------------|:-----------------|
-| **Slow International Payments** | Students wait days for payments to clear | Payments complete in minutes on EDU Chain |
+| **Slow International Payments** | Students wait days for payments to clear | Payments complete in minutes on Base |
 | **High Processing Fees** | Schools lose 2-5% on each transaction | Cut fees by up to 80% using stablecoins |
 | **Manual Payment Tracking** | Staff waste time matching payments to students | Automatic payment tracking and matching |
 | **Limited Global Access** | Some payment methods don't work everywhere | Anyone with internet can pay from anywhere |
@@ -36,7 +36,7 @@ School payment systems today have many issues:
 ## ✨ **Key Features**
 
 - **Accept Stablecoin Payments** – Take USDC, USDT and other stablecoins for tuition and fees
-- **EDU Chain Integration** – Built specifically for EDU Chain's fast, low-cost network
+- **Base Integration** – Built specifically for Base's fast, low-cost network
 - **Automatic Payment Matching** – System connects payments to the right student accounts
 - **Simple Dashboard** – Easy-to-use interface for school finance departments
 - **Student Payment Portal** – User-friendly payment experience for students and parents
@@ -52,7 +52,7 @@ Edupay makes accepting crypto payments simple:
 1. **School Setup** – School creates an account and connects their wallet
 2. **Student Registration** – Students register and connect their wallets
 3. **Payment Selection** – Students choose which stablecoin to pay with
-4. **EDU Chain Processing** – Payments are processed on EDU Chain's testnet (soon mainnet)
+4. **Base Processing** – Payments are processed on Base L2
 5. **Instant Confirmation** – Both school and student get immediate payment confirmation
 6. **Automatic Records** – Payment is automatically recorded in the school's system
 
@@ -62,20 +62,20 @@ Edupay makes accepting crypto payments simple:
 
 | **What It Does** | **Technology Behind It** |
 |:-----------------|:-------------------------|
-| **Blockchain Network** | EDU Chain Testnet |
-| **Smart Contracts** | Solidity (deployed on EDU Chain) |
+| **Blockchain Network** | Base L2 |
+| **Smart Contracts** | Solidity (deployed on Base) |
 | **Stablecoins Supported** | USDC, USDT, DAI |
 | **Website** | Next.js, React, Tailwind CSS |
 | **Wallet Connections** | WalletConnect, MetaMask |
 
 ---
 
-## 🏆 **EDU Chain Hackathon Project**
+## 🏆 **Base Batches Buildathon Project**
 
-Edupay is proudly built for the **EDU Chain Hackathon**. We've designed our solution to showcase EDU Chain's capabilities for educational payments:
+Edupay is proudly built for the **Base Batches Buildathon**. We've designed our solution to showcase Base's capabilities for educational payments:
 
-- **Testnet Deployment** – Our smart contracts are live on EDU Chain's testnet
-- **EDU Chain Benefits** – Leveraging EDU Chain's fast transactions and low fees
+- **Base Deployment** – Our smart contracts are live on Base L2
+- **Base Benefits** – Leveraging Base's fast transactions and low fees
 - **Education Focus** – Built specifically for schools and educational institutions
 - **Stablecoin Strategy** – Using stablecoins to maintain value stability for education payments
 
@@ -100,7 +100,7 @@ Edupay is proudly built for the **EDU Chain Hackathon**. We've designed our solu
 ## 🔗 **See It In Action**
 
 - **Live Demo**: [edupaydefi.xyz](https://edupaydefi.xyz)
-- **EDU Chain Contract**: [View on EDU Chain Explorer](https://edu-chain-testnet.blockscout.com/tx/0xd3851365582369b236fe059039c6252b14955a87e075e2233dfdf68af99fcef7)
+- **Base Contract**: [View on Base Explorer](https://base.org)
 - **Project Video**: [Watch Demo](https://edupaydefi.xyz/demo)
 
 ---
@@ -131,6 +131,6 @@ Have questions about Edupay or want to see a demo?
 ---
 
 <div align="center">
-  <p><strong>Edupay</strong> — Making Educational Payments Simple with EDU Chain</p>
-  <p>Built with ❤️ for the EDU Chain Hackathon</p>
+  <p><strong>Edupay</strong> — Making Educational Payments Simple with Base</p>
+  <p>Built with ❤️ for the Base Batches Buildathon</p>
 </div>
